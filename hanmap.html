@@ -37,7 +37,7 @@
         "url": "https://langmap.heuron.com/hanmap.html",
         "description": "60 Han characters in ~60 Sinosphere language/variety pronunciations — IPA, Pinyin, Jyutping, POJ, Sino-Korean, Sino-Vietnamese, Old & Middle Chinese reconstructions.",
         "isPartOf": {"@id": "https://langmap.heuron.com/#website"},
-        "inLanguage": ["ja", "ko", "zh", "yue", "vi", "th", "id", "hi", "en", "de", "fr", "it", "es", "pt", "ru", "uk", "ar", "he", "sw"]
+        "inLanguage": ["ja", "ko", "zh", "yue", "vi", "th", "id", "hi", "en", "de", "fr", "it", "es", "pt", "ru", "uk", "ar", "he", "sw", "pl"]
     }
     </script>
     <meta name="google-site-verification" content="bv4ffQGbDc_Grf1Ioc8NCotrXWc2mY34wEmL-5yHJyM" />
@@ -3106,7 +3106,8 @@
         ms:   { ko_mid: 'Sino-Korea Pertengahan' },
         hi:   { ko_mid: 'मध्य-कोरियाई सिनो' },
         pt:   { ko_mid: 'sino-coreano médio' },
-        uk:   { ko_mid: 'Середньокорейське сіно-читання' },
+        uk:   { ko_mid: 'Середньокорейське сіно-читання',
+        pl:   { ko_mid: 'Średniokoreańskie sino-odczyt' },
       };
       for (const [ui, m] of Object.entries(OV)) {
         if (!LANG_NAMES[ui]) LANG_NAMES[ui] = {};
@@ -3957,7 +3958,7 @@
         // the later `const TRIVIA_I18N_LANGS = …` line is reached.
         // Without this, the `const` declaration TDZ-throws when init
         // resolves an article id from ?trivia=<id>.
-        var TRIVIA_I18N_LANGS = new Set(['ko','zh','yue','vi','th','id','hi','de','fr','it','es','pt','ru','uk','ar','he','sw']);
+        var TRIVIA_I18N_LANGS = new Set(['ko','zh','yue','vi','th','id','hi','de','fr','it','es','pt','ru','uk','ar','he','sw', 'pl']);
         var _loadedTriviaI18n = new Set();
         // Hoisted: read by updateGlobeLabels (which can be called from map
         // event listeners during initial render). The real assignment lives
@@ -4185,7 +4186,7 @@
                 const base = code.split('_')[0];
                 const map = { ja:'ja', ko:'ko', zh:'zh', vi:'vi', th:'th', id:'id', hi:'hi',
                     en:'en', de:'de', fr:'fr', it:'it', ru:'ru', uk:'uk', ar:'ar', he:'he',
-                    sw:'sw', pt:'pt', es:'es', da:'en', sv:'en', no:'en', nl:'en' };
+                    sw:'sw', pt:'pt', es:'es', da:'en', sv:'en', no:'en', nl:'en', pl:'pl' };
                 if (map[base] && WM_UI[map[base]]) return map[base];
                 if (base === 'zh') {
                     if (code.includes('hk') || code.includes('tw') || code.includes('hant')) return 'yue';
@@ -4298,7 +4299,7 @@
             es: 'Atlas mundial de palabras',
             pt: 'Atlas mundial de palavras',
             ru:'Многоязычный атлас слов', uk:'Багатомовний атлас слів',
-            ar:'أطلس الكلمات العالمي', he:'אטלס מילים עולמי', sw:'Atlasi ya Maneno ya Dunia',
+            ar:'أطلس الكلمات العالمي', he:'אטלס מילים עולמי', sw:'Atlasi ya Maneno ya Dunia', pl:'Wielojęzykowy atlas słów',
         };
         const NAV_ORDER = {
             ja:'語順マップ', ko:'어순 맵', zh:'语序图', yue:'語序圖', vi:'Trật tự từ',
@@ -4307,7 +4308,7 @@
             es: 'Orden de palabras',
             pt: 'Ordem das palavras',
             ru:'Порядок слов', uk:'Порядок слів', ar:'ترتيب الكلمات',
-            he:'סדר מילים', sw:'Mpangilio wa maneno',
+            he:'סדר מילים', sw:'Mpangilio wa maneno', pl:'Kolejność słów',
         };
         const NAV_MAP = {
             ja:'単語マップ', ko:'단어 맵', zh:'词汇地图', yue:'詞彙地圖', vi:'Bản đồ từ',
@@ -4316,7 +4317,7 @@
             es: 'Mapa de palabras',
             pt: 'Mapa de palavras',
             ru:'Карта слов', uk:'Карта слів', ar:'خريطة الكلمات',
-            he:'מפת מילים', sw:'Ramani ya maneno',
+            he:'מפת מילים', sw:'Ramani ya maneno', pl:'Mapa słów',
         };
         // Pass 36: Tree nav label — kept in lockstep with index.html's
         // app.js trLabels and tree.html's UI_I18N.navTree so all 3 pages
@@ -4328,7 +4329,7 @@
             es: 'Árbol',
             pt: 'Árvore',
             ru:'Древо', uk:'Дерево', ar:'الشجرة',
-            he:'אילן', sw:'Mti',
+            he:'אילן', sw:'Mti', pl:'Drzewo',
         };
 
         // Audit i18n: centralized localized UI strings. Moved here (before
@@ -4343,7 +4344,7 @@
                 es: 'Descendiente moderno', es: 'Descendiente moderno',
                 pt: 'Descendente moderno', pt: 'Descendente moderno',
                 ru: 'Совр. потомок', uk: 'Сучасний нащадок',
-                ar: 'سليل حديث', he: 'צאצא מודרני', sw: 'Wazao wa kisasa' },
+                ar: 'سليل حديث', he: 'צאצא מודרני', sw: 'Wazao wa kisasa', pl: 'Współczesny potomek' },
             historicalAncestors: { en: 'Historical ancestors', ja: '歴史的祖先', ko: '역사적 조상', zh: '历史祖先',
                 yue: '歷史祖先', vi: 'Tổ tiên lịch sử', th: 'บรรพบุรุษทางประวัติศาสตร์',
                 id: 'Leluhur historis', hi: 'ऐतिहासिक पूर्वज', de: 'Hist. Vorfahren',
@@ -4351,7 +4352,7 @@
                 es: 'Antepasados históricos', es: 'Antepasados históricos',
                 pt: 'Ancestrais históricos', pt: 'Ancestrais históricos',
                 ru: 'Ист. предки', uk: 'Іст. предки',
-                ar: 'أسلاف تاريخيون', he: 'אבות היסטוריים', sw: 'Mababu wa kihistoria' },
+                ar: 'أسلاف تاريخيون', he: 'אבות היסטוריים', sw: 'Mababu wa kihistoria', pl: "Historyczni przodkowie' },
             sources: { en: 'Sources', ja: '参考', ko: '참고', zh: '参考',
                 yue: '參考', vi: 'Nguồn', th: 'แหล่งข้อมูล', id: 'Sumber', hi: 'स्रोत',
                 de: 'Quellen', fr: 'Sources', it: 'Fonti',
@@ -4366,26 +4367,26 @@
                 es: '🔍 Buscar idioma…', es: '🔍 Buscar idioma…',
                 pt: '🔍 Pesquisar idioma…', pt: '🔍 Pesquisar idioma…',
                 ru: '🔍 Поиск языка…', uk: '🔍 Пошук мови…',
-                ar: '🔍 ابحث عن لغة…', he: '🔍 חיפוש שפה…', sw: '🔍 Tafuta lugha…' },
-            chromeToggleHide: { en: 'Hide UI overlays', ja: 'UI を隠す', ko: 'UI 숨기기', zh: '隐藏 UI 覆盖层', yue: '隱藏 UI 覆蓋', vi: 'Ẩn lớp phủ UI', th: 'ซ่อนชั้น UI', id: 'Sembunyikan UI', hi: 'UI ओवरले छिपाएँ', de: 'UI ausblenden', fr: 'Masquer l’UI', it: 'Nascondi UI', es: 'Ocultar UI', pt: 'Ocultar UI', ru: 'Скрыть UI', uk: 'Сховати UI', ar: 'إخفاء واجهة المستخدم', he: 'הסתר את ממשק המשתמש', sw: 'Ficha UI' },
-            chromeToggleShow: { en: 'Show UI overlays', ja: 'UI を表示', ko: 'UI 표시', zh: '显示 UI 覆盖层', yue: '顯示 UI 覆蓋', vi: 'Hiện lớp phủ UI', th: 'แสดงชั้น UI', id: 'Tampilkan UI', hi: 'UI ओवरले दिखाएँ', de: 'UI einblenden', fr: 'Afficher l’UI', it: 'Mostra UI', es: 'Mostrar UI', pt: 'Mostrar UI', ru: 'Показать UI', uk: 'Показати UI', ar: 'إظهار واجهة المستخدم', he: 'הצג את ממשק המשתמש', sw: 'Onyesha UI' },
+                ar: '🔍 ابحث عن لغة…', he: '🔍 חיפוש שפה…', sw: '🔍 Tafuta lugha…',  pl: '🔍 Znajdź język…'},
+            chromeToggleHide: { en: 'Hide UI overlays', ja: 'UI を隠す', ko: 'UI 숨기기', zh: '隐藏 UI 覆盖层', yue: '隱藏 UI 覆蓋', vi: 'Ẩn lớp phủ UI', th: 'ซ่อนชั้น UI', id: 'Sembunyikan UI', hi: 'UI ओवरले छिपाएँ', de: 'UI ausblenden', fr: 'Masquer l’UI', it: 'Nascondi UI', es: 'Ocultar UI', pt: 'Ocultar UI', ru: 'Скрыть UI', uk: 'Сховати UI', ar: 'إخفاء واجهة المستخدم', he: 'הסתר את ממשק המשתמש', sw: 'Ficha UI', pl: 'Ukryj interfejs' },
+            chromeToggleShow: { en: 'Show UI overlays', ja: 'UI を表示', ko: 'UI 표시', zh: '显示 UI 覆盖层', yue: '顯示 UI 覆蓋', vi: 'Hiện lớp phủ UI', th: 'แสดงชั้น UI', id: 'Tampilkan UI', hi: 'UI ओवरले दिखाएँ', de: 'UI einblenden', fr: 'Afficher l’UI', it: 'Mostra UI', es: 'Mostrar UI', pt: 'Mostrar UI', ru: 'Показать UI', uk: 'Показати UI', ar: 'إظهار واجهة المستخدم', he: 'הצג את ממשק המשתמש', sw: 'Onyesha UI', pl: 'Pokaż inferfejs' },
             // Audit Task 106: ARIA labels for top-bar controls (now full UI-lang coverage)
-            ariaSelectWord:    { en:'Select word', ja:'単語を選択', ko:'단어 선택', zh:'选择词', yue:'選擇詞', vi:'Chọn từ', th:'เลือกคำ', id:'Pilih kata', hi:'शब्द चुनें', de:'Wort wählen', fr:'Sélectionner un mot', it:'Seleziona parola', es:'Seleccionar palabra', pt:'Selecionar palavra', ru:'Выбрать слово', uk:'Вибрати слово', ar:'اختر كلمة', he:'בחר מילה', sw:'Chagua neno' },
-            ariaUiLanguage:    { en:'UI language', ja:'UI 言語', ko:'UI 언어', zh:'界面语言', yue:'介面語言', vi:'Ngôn ngữ giao diện', th:'ภาษาส่วนติดต่อ', id:'Bahasa antarmuka', hi:'UI भाषा', de:'UI-Sprache', fr:'Langue de l\'interface', it:'Lingua dell\'interfaccia', es:'Idioma de interfaz', pt:'Idioma da interface', ru:'Язык интерфейса', uk:'Мова інтерфейсу', ar:'لغة الواجهة', he:'שפת ממשק', sw:'Lugha ya kiolesura' },
-            ariaMapZoom:       { en:'Map zoom', ja:'地図ズーム', ko:'지도 확대/축소', zh:'地图缩放', yue:'地圖縮放', vi:'Thu phóng bản đồ', th:'ซูมแผนที่', id:'Zoom peta', hi:'मानचित्र ज़ूम', de:'Karten-Zoom', fr:'Zoom de la carte', it:'Zoom mappa', es:'Zoom del mapa', pt:'Zoom do mapa', ru:'Масштаб карты', uk:'Масштаб мапи', ar:'تكبير الخريطة', he:'זום מפה', sw:'Kuza ramani' },
-            ariaZoomIn:        { en:'Zoom in', ja:'拡大', ko:'확대', zh:'放大', yue:'放大', vi:'Phóng to', th:'ขยาย', id:'Perbesar', hi:'ज़ूम इन', de:'Vergrößern', fr:'Agrandir', it:'Ingrandisci', es:'Acercar', pt:'Aproximar', ru:'Увеличить', uk:'Збільшити', ar:'تكبير', he:'הגדל', sw:'Kuza' },
-            ariaZoomOut:       { en:'Zoom out', ja:'縮小', ko:'축소', zh:'缩小', yue:'縮小', vi:'Thu nhỏ', th:'ย่อ', id:'Perkecil', hi:'ज़ूम आउट', de:'Verkleinern', fr:'Réduire', it:'Riduci', es:'Alejar', pt:'Afastar', ru:'Уменьшить', uk:'Зменшити', ar:'تصغير', he:'הקטן', sw:'Punguza' },
-            aria2D3D:          { en:'Toggle 2D / 3D view', ja:'2D/3D 表示切替', ko:'2D/3D 보기 전환', zh:'切换 2D/3D 视图', yue:'切換 2D/3D 視圖', vi:'Chuyển 2D / 3D', th:'สลับมุมมอง 2D / 3D', id:'Alih 2D / 3D', hi:'2D / 3D दृश्य बदलें', de:'2D / 3D wechseln', fr:'Basculer 2D / 3D', it:'Alterna 2D / 3D', es:'Alternar 2D / 3D', pt:'Alternar 2D / 3D', ru:'Переключить 2D / 3D', uk:'Перемкнути 2D / 3D', ar:'تبديل 2D / 3D', he:'החלף 2D / 3D', sw:'Badilisha 2D / 3D' },
-            ariaToggleForm:    { en:'Toggle form display', ja:'表記の表示切替', ko:'표기 표시 전환', zh:'切换写法显示', yue:'切換寫法顯示', vi:'Bật/tắt hiển thị chữ viết', th:'สลับการแสดงรูปคำ', id:'Alih tampilan bentuk', hi:'रूप प्रदर्शन बदलें', de:'Schreibung umschalten', fr:'Basculer l\'affichage des graphies', it:'Alterna la grafia', es:'Alternar grafía', pt:'Alternar grafia', ru:'Переключить отображение записи', uk:'Перемкнути показ написання', ar:'تبديل عرض الشكل', he:'החלף תצוגת כתיב', sw:'Badilisha tabia ya kuandika' },
-            ariaTogglePron:    { en:'Toggle pronunciation display', ja:'発音表示切替', ko:'발음 표시 전환', zh:'切换发音显示', yue:'切換發音顯示', vi:'Bật/tắt phát âm', th:'สลับการแสดงการออกเสียง', id:'Alih tampilan pelafalan', hi:'उच्चारण प्रदर्शन बदलें', de:'Aussprache umschalten', fr:'Basculer la prononciation', it:'Alterna la pronuncia', es:'Alternar pronunciación', pt:'Alternar pronúncia', ru:'Переключить произношение', uk:'Перемкнути вимову', ar:'تبديل عرض النطق', he:'החלף תצוגת הגייה', sw:'Badilisha matamshi' },
-            ariaToggleName:    { en:'Toggle language-name display', ja:'言語名表示切替', ko:'언어명 표시 전환', zh:'切换语言名显示', yue:'切換語言名顯示', vi:'Bật/tắt tên ngôn ngữ', th:'สลับการแสดงชื่อภาษา', id:'Alih tampilan nama bahasa', hi:'भाषा नाम बदलें', de:'Sprachnamen umschalten', fr:'Basculer le nom de langue', it:'Alterna nome lingua', es:'Alternar nombre del idioma', pt:'Alternar nome do idioma', ru:'Переключить название языка', uk:'Перемкнути назву мови', ar:'تبديل عرض اسم اللغة', he:'החלף תצוגת שם השפה', sw:'Badilisha jina la lugha' },
-            ariaNameGroup:     { en:'Name display (native / translated)', ja:'言語名表示（現地名/翻訳）', ko:'언어명 표시 (현지/번역)', zh:'语言名显示（本名/翻译）', yue:'語言名顯示（本名／翻譯）', vi:'Hiển thị tên (bản địa / dịch)', th:'การแสดงชื่อ (พื้นเมือง / แปล)', id:'Tampilan nama (asli / diterjemahkan)', hi:'नाम प्रदर्शन (मूल / अनुवादित)', de:'Namensanzeige (nativ / übersetzt)', fr:'Affichage du nom (natif / traduit)', it:'Visualizzazione nome (nativo / tradotto)', es:'Mostrar nombre (nativo / traducido)', pt:'Exibição de nome (nativo / traduzido)', ru:'Отображение названия (родное / перевод)', uk:'Відображення назви (рідна / переклад)', ar:'عرض الاسم (الأصلي / المُترجم)', he:'תצוגת שם (מקורי / מתורגם)', sw:'Onyesho la jina (asili / iliyotafsiriwa)' },
-            ariaFontSize:      { en:'Label font size', ja:'ラベル文字サイズ', ko:'라벨 글꼴 크기', zh:'标签字体大小', yue:'標籤字體大小', vi:'Cỡ chữ nhãn', th:'ขนาดอักษรของป้าย', id:'Ukuran huruf label', hi:'लेबल फ़ॉन्ट आकार', de:'Beschriftungs-Schriftgröße', fr:'Taille de police d\'étiquette', it:'Dimensione carattere etichetta', es:'Tamaño de fuente de etiqueta', pt:'Tamanho da fonte do rótulo', ru:'Размер шрифта подписей', uk:'Розмір шрифту підпису', ar:'حجم خط التسمية', he:'גודל גופן תווית', sw:'Saizi ya fonti ya lebo' },
-            ariaCloseInfo:     { en:'Close language info', ja:'言語情報を閉じる', ko:'언어 정보 닫기', zh:'关闭语言信息', yue:'關閉語言資訊', vi:'Đóng thông tin ngôn ngữ', th:'ปิดข้อมูลภาษา', id:'Tutup info bahasa', hi:'भाषा जानकारी बंद करें', de:'Sprachinformationen schließen', fr:'Fermer les infos de la langue', it:'Chiudi info lingua', es:'Cerrar info del idioma', pt:'Fechar info do idioma', ru:'Закрыть инфо языка', uk:'Закрити інфо мови', ar:'إغلاق معلومات اللغة', he:'סגור מידע שפה', sw:'Funga taarifa ya lugha' },
-            ariaEraGroup:      { en:'Era (modern / historical)', ja:'時代（現代/歴史）', ko:'시대 (현대/역사)', zh:'时代（现代/历史）', yue:'時代（現代／歷史）', vi:'Thời kỳ (hiện đại / lịch sử)', th:'ยุค (สมัยใหม่ / ประวัติศาสตร์)', id:'Era (modern / historis)', hi:'युग (आधुनिक / ऐतिहासिक)', de:'Epoche (modern / historisch)', fr:'Époque (moderne / historique)', it:'Epoca (moderna / storica)', es:'Época (moderna / histórica)', pt:'Era (moderna / histórica)', ru:'Эпоха (современная / историческая)', uk:'Епоха (сучасна / історична)', ar:'الحقبة (حديثة / تاريخية)', he:'תקופה (מודרני / היסטורי)', sw:'Enzi (kisasa / kihistoria)' },
-            modernLangTooltip: { en:'modern lang', ja:'現代言語', ko:'현대어', zh:'现代语言', yue:'現代語言', vi:'ngôn ngữ hiện đại', th:'ภาษาสมัยใหม่', id:'bahasa modern', hi:'आधुनिक भाषा', de:'moderne Sprache', fr:'langue moderne', it:'lingua moderna', es:'idioma moderno', pt:'idioma moderno', ru:'современный язык', uk:'сучасна мова', ar:'لغة حديثة', he:'שפה מודרנית', sw:'lugha ya kisasa' },
-            historicalLangTooltip: { en:'historical lang', ja:'歴史言語', ko:'역사 언어', zh:'历史语言', yue:'歷史語言', vi:'ngôn ngữ lịch sử', th:'ภาษาประวัติศาสตร์', id:'bahasa historis', hi:'ऐतिहासिक भाषा', de:'historische Sprache', fr:'langue historique', it:'lingua storica', es:'idioma histórico', pt:'idioma histórico', ru:'исторический язык', uk:'історична мова', ar:'لغة تاريخية', he:'שפה היסטורית', sw:'lugha ya kihistoria' },
-            ariaRandomLang:    { en:'Random language', ja:'ランダムな言語', ko:'무작위 언어', zh:'随机语言', yue:'隨機語言', vi:'Ngôn ngữ ngẫu nhiên', th:'ภาษาแบบสุ่ม', id:'Bahasa acak', hi:'यादृच्छिक भाषा', de:'Zufällige Sprache', fr:'Langue aléatoire', it:'Lingua casuale', es:'Idioma aleatorio', pt:'Idioma aleatório', ru:'Случайный язык', uk:'Випадкова мова', ar:'لغة عشوائية', he:'שפה אקראית', sw:'Lugha ya nasibu' },
+            ariaSelectWord:    { en:'Select word', ja:'単語を選択', ko:'단어 선택', zh:'选择词', yue:'選擇詞', vi:'Chọn từ', th:'เลือกคำ', id:'Pilih kata', hi:'शब्द चुनें', de:'Wort wählen', fr:'Sélectionner un mot', it:'Seleziona parola', es:'Seleccionar palabra', pt:'Selecionar palavra', ru:'Выбрать слово', uk:'Вибрати слово', ar:'اختر كلمة', he:'בחר מילה', sw:'Chagua neno', pl:'Wybierz słowo' },
+            ariaUiLanguage:    { en:'UI language', ja:'UI 言語', ko:'UI 언어', zh:'界面语言', yue:'介面語言', vi:'Ngôn ngữ giao diện', th:'ภาษาส่วนติดต่อ', id:'Bahasa antarmuka', hi:'UI भाषा', de:'UI-Sprache', fr:'Langue de l\'interface', it:'Lingua dell\'interfaccia', es:'Idioma de interfaz', pt:'Idioma da interface', ru:'Язык интерфейса', uk:'Мова інтерфейсу', ar:'لغة الواجهة', he:'שפת ממשק', sw:'Lugha ya kiolesura', pl:'Język interfejsu' },
+            ariaMapZoom:       { en:'Map zoom', ja:'地図ズーム', ko:'지도 확대/축소', zh:'地图缩放', yue:'地圖縮放', vi:'Thu phóng bản đồ', th:'ซูมแผนที่', id:'Zoom peta', hi:'मानचित्र ज़ूम', de:'Karten-Zoom', fr:'Zoom de la carte', it:'Zoom mappa', es:'Zoom del mapa', pt:'Zoom do mapa', ru:'Масштаб карты', uk:'Масштаб мапи', ar:'تكبير الخريطة', he:'זום מפה', sw:'Kuza ramani', pl:'Skala mapy' },
+            ariaZoomIn:        { en:'Zoom in', ja:'拡大', ko:'확대', zh:'放大', yue:'放大', vi:'Phóng to', th:'ขยาย', id:'Perbesar', hi:'ज़ूम इन', de:'Vergrößern', fr:'Agrandir', it:'Ingrandisci', es:'Acercar', pt:'Aproximar', ru:'Увеличить', uk:'Збільшити', ar:'تكبير', he:'הגדל', sw:'Kuza', pl:'Powiększ' },
+            ariaZoomOut:       { en:'Zoom out', ja:'縮小', ko:'축소', zh:'缩小', yue:'縮小', vi:'Thu nhỏ', th:'ย่อ', id:'Perkecil', hi:'ज़ूम आउट', de:'Verkleinern', fr:'Réduire', it:'Riduci', es:'Alejar', pt:'Afastar', ru:'Уменьшить', uk:'Зменшити', ar:'تصغير', he:'הקטן', sw:'Punguza', pl:'Pomniejsz' },
+            aria2D3D:          { en:'Toggle 2D / 3D view', ja:'2D/3D 表示切替', ko:'2D/3D 보기 전환', zh:'切换 2D/3D 视图', yue:'切換 2D/3D 視圖', vi:'Chuyển 2D / 3D', th:'สลับมุมมอง 2D / 3D', id:'Alih 2D / 3D', hi:'2D / 3D दृश्य बदलें', de:'2D / 3D wechseln', fr:'Basculer 2D / 3D', it:'Alterna 2D / 3D', es:'Alternar 2D / 3D', pt:'Alternar 2D / 3D', ru:'Переключить 2D / 3D', uk:'Перемкнути 2D / 3D', ar:'تبديل 2D / 3D', he:'החלף 2D / 3D', sw:'Badilisha 2D / 3D', pl:'Przełącz 2D / 3D' },
+            ariaToggleForm:    { en:'Toggle form display', ja:'表記の表示切替', ko:'표기 표시 전환', zh:'切换写法显示', yue:'切換寫法顯示', vi:'Bật/tắt hiển thị chữ viết', th:'สลับการแสดงรูปคำ', id:'Alih tampilan bentuk', hi:'रूप प्रदर्शन बदलें', de:'Schreibung umschalten', fr:'Basculer l\'affichage des graphies', it:'Alterna la grafia', es:'Alternar grafía', pt:'Alternar grafia', ru:'Переключить отображение записи', uk:'Перемкнути показ написання', ar:'تبديل عرض الشكل', he:'החלף תצוגת כתיב', sw:'Badilisha tabia ya kuandika', pl:'Przełącz wyświetlenie zapisu' },
+            ariaTogglePron:    { en:'Toggle pronunciation display', ja:'発音表示切替', ko:'발음 표시 전환', zh:'切换发音显示', yue:'切換發音顯示', vi:'Bật/tắt phát âm', th:'สลับการแสดงการออกเสียง', id:'Alih tampilan pelafalan', hi:'उच्चारण प्रदर्शन बदलें', de:'Aussprache umschalten', fr:'Basculer la prononciation', it:'Alterna la pronuncia', es:'Alternar pronunciación', pt:'Alternar pronúncia', ru:'Переключить произношение', uk:'Перемкнути вимову', ar:'تبديل عرض النطق', he:'החלף תצוגת הגייה', sw:'Badilisha matamshi', pl:'Przełącz wyświetlenie wymowy' },
+            ariaToggleName:    { en:'Toggle language-name display', ja:'言語名表示切替', ko:'언어명 표시 전환', zh:'切换语言名显示', yue:'切換語言名顯示', vi:'Bật/tắt tên ngôn ngữ', th:'สลับการแสดงชื่อภาษา', id:'Alih tampilan nama bahasa', hi:'भाषा नाम बदलें', de:'Sprachnamen umschalten', fr:'Basculer le nom de langue', it:'Alterna nome lingua', es:'Alternar nombre del idioma', pt:'Alternar nome do idioma', ru:'Переключить название языка', uk:'Перемкнути назву мови', ar:'تبديل عرض اسم اللغة', he:'החלף תצוגת שם השפה', sw:'Badilisha jina la lugha', pl:'Przełącz wyświetlenie nazwy zapisu' },
+            ariaNameGroup:     { en:'Name display (native / translated)', ja:'言語名表示（現地名/翻訳）', ko:'언어명 표시 (현지/번역)', zh:'语言名显示（本名/翻译）', yue:'語言名顯示（本名／翻譯）', vi:'Hiển thị tên (bản địa / dịch)', th:'การแสดงชื่อ (พื้นเมือง / แปล)', id:'Tampilan nama (asli / diterjemahkan)', hi:'नाम प्रदर्शन (मूल / अनुवादित)', de:'Namensanzeige (nativ / übersetzt)', fr:'Affichage du nom (natif / traduit)', it:'Visualizzazione nome (nativo / tradotto)', es:'Mostrar nombre (nativo / traducido)', pt:'Exibição de nome (nativo / traduzido)', ru:'Отображение названия (родное / перевод)', uk:'Відображення назви (рідна / переклад)', ar:'عرض الاسم (الأصلي / المُترجم)', he:'תצוגת שם (מקורי / מתורגם)', sw:'Onyesho la jina (asili / iliyotafsiriwa)', pl:'Wyświetlenie nazwy (ojczysta / przetłumaczona) },
+            ariaFontSize:      { en:'Label font size', ja:'ラベル文字サイズ', ko:'라벨 글꼴 크기', zh:'标签字体大小', yue:'標籤字體大小', vi:'Cỡ chữ nhãn', th:'ขนาดอักษรของป้าย', id:'Ukuran huruf label', hi:'लेबल फ़ॉन्ट आकार', de:'Beschriftungs-Schriftgröße', fr:'Taille de police d\'étiquette', it:'Dimensione carattere etichetta', es:'Tamaño de fuente de etiqueta', pt:'Tamanho da fonte do rótulo', ru:'Размер шрифта подписей', uk:'Розмір шрифту підпису', ar:'حجم خط التسمية', he:'גודל גופן תווית', sw:'Saizi ya fonti ya lebo', pl:'Rozmiar czcionki etykiety' },
+            ariaCloseInfo:     { en:'Close language info', ja:'言語情報を閉じる', ko:'언어 정보 닫기', zh:'关闭语言信息', yue:'關閉語言資訊', vi:'Đóng thông tin ngôn ngữ', th:'ปิดข้อมูลภาษา', id:'Tutup info bahasa', hi:'भाषा जानकारी बंद करें', de:'Sprachinformationen schließen', fr:'Fermer les infos de la langue', it:'Chiudi info lingua', es:'Cerrar info del idioma', pt:'Fechar info do idioma', ru:'Закрыть инфо языка', uk:'Закрити інфо мови', ar:'إغلاق معلومات اللغة', he:'סגור מידע שפה', sw:'Funga taarifa ya lugha', pl:'Zamknij informacje o języku' },
+            ariaEraGroup:      { en:'Era (modern / historical)', ja:'時代（現代/歴史）', ko:'시대 (현대/역사)', zh:'时代（现代/历史）', yue:'時代（現代／歷史）', vi:'Thời kỳ (hiện đại / lịch sử)', th:'ยุค (สมัยใหม่ / ประวัติศาสตร์)', id:'Era (modern / historis)', hi:'युग (आधुनिक / ऐतिहासिक)', de:'Epoche (modern / historisch)', fr:'Époque (moderne / historique)', it:'Epoca (moderna / storica)', es:'Época (moderna / histórica)', pt:'Era (moderna / histórica)', ru:'Эпоха (современная / историческая)', uk:'Епоха (сучасна / історична)', ar:'الحقبة (حديثة / تاريخية)', he:'תקופה (מודרני / היסטורי)', sw:'Enzi (kisasa / kihistoria)', pl:'Era (współczesna / historyczna)' },
+            modernLangTooltip: { en:'modern lang', ja:'現代言語', ko:'현대어', zh:'现代语言', yue:'現代語言', vi:'ngôn ngữ hiện đại', th:'ภาษาสมัยใหม่', id:'bahasa modern', hi:'आधुनिक भाषा', de:'moderne Sprache', fr:'langue moderne', it:'lingua moderna', es:'idioma moderno', pt:'idioma moderno', ru:'современный язык', uk:'сучасна мова', ar:'لغة حديثة', he:'שפה מודרנית', sw:'lugha ya kisasa', pl:'język współczesny' },
+            historicalLangTooltip: { en:'historical lang', ja:'歴史言語', ko:'역사 언어', zh:'历史语言', yue:'歷史語言', vi:'ngôn ngữ lịch sử', th:'ภาษาประวัติศาสตร์', id:'bahasa historis', hi:'ऐतिहासिक भाषा', de:'historische Sprache', fr:'langue historique', it:'lingua storica', es:'idioma histórico', pt:'idioma histórico', ru:'исторический язык', uk:'історична мова', ar:'لغة تاريخية', he:'שפה היסטורית', sw:'lugha ya kihistoria', pl:'język historyczny' },
+            ariaRandomLang:    { en:'Random language', ja:'ランダムな言語', ko:'무작위 언어', zh:'随机语言', yue:'隨機語言', vi:'Ngôn ngữ ngẫu nhiên', th:'ภาษาแบบสุ่ม', id:'Bahasa acak', hi:'यादृच्छिक भाषा', de:'Zufällige Sprache', fr:'Langue aléatoire', it:'Lingua casuale', es:'Idioma aleatorio', pt:'Idioma aleatório', ru:'Случайный язык', uk:'Випадкова мова', ar:'لغة عشوائية', he:'שפה אקראית', sw:'Lugha ya nasibu', pl:'Losowy język' },
             // Audit Task 112: era legend explanation. Modern mode shows
             // only modern languages; historical mode adds historical
             // entries plus their modern descendants as cross-reference
@@ -4410,6 +4411,7 @@
                 ar:'الوضع الحديث: يعرض اللغات والأشكال الحديثة.',
                 he:'מצב מודרני: מציג שפות וניבים מודרניים.',
                 sw:'Hali ya kisasa: huonyesha lugha na ainalugha za kisasa.',
+                pl:'Tryb współczesny: pokazuje wszystkie języki współczesne i ich rodzaje.',
             },
             eraHelpHistorical: {
                 en:'Historical mode: shows historical languages plus modern descendants (red) as cross-reference.',
@@ -4431,13 +4433,14 @@
                 ar:'الوضع التاريخي: يعرض اللغات التاريخية مع السلائل الحديثة (بالأحمر) كمرجع.',
                 he:'מצב היסטורי: מציג שפות היסטוריות לצד צאצאים מודרניים (אדום) כעזר.',
                 sw:'Hali ya kihistoria: huonyesha lugha za kihistoria pamoja na wazao wa kisasa (nyekundu) kama rejea.',
+                pl:'Tryb historyczny: pokazuje języki historyczne oraz ich współczesne potomki (czerwone) jako odniesienie.',
             },
             noMatch: { en:'No match', ja:'該当なし', ko:'일치 항목 없음', zh:'无匹配', yue:'冇匹配',
                 vi:'Không tìm thấy', th:'ไม่พบรายการ', id:'Tidak ada', hi:'कोई मेल नहीं',
                 de:'Kein Treffer', fr:'Aucun résultat', it:'Nessun risultato',
                 es:'Sin resultados', pt:'Sem resultados',
                 ru:'Нет совпадений', uk:'Немає збігів',
-                ar:'لا توجد نتائج', he:'אין תוצאות', sw:'Hakuna inayolingana' },
+                ar:'لا توجد نتائج', he:'אין תוצאות', sw:'Hakuna inayolingana', pl:'Brak wyników' },
             eraFilterOffHint: { en:'Toggle off the {era} filter to select',
                 ja:'{era}フィルターをオフにしてください', ko:'{era} 필터를 끄세요',
                 zh:'请关闭{era}过滤器后再选择', yue:'請關閉{era}過濾器再選擇',
@@ -4451,7 +4454,8 @@
                 ru:'Отключите фильтр {era} для выбора',
                 uk:'Вимкніть фільтр {era}, щоб вибрати',
                 ar:'أوقف فلتر {era} للاختيار', he:'בטל את מסנן ה־{era} לבחירה',
-                sw:'Zima kichujio cha {era} ili kuchagua' },
+                sw:'Zima kichujio cha {era} ili kuchagua',
+                pl:'Wyłącz przełącznik {era}, aby wybrać' },
             triviaButton: {
                 en: 'Sinosphere Trivia', ja: '漢字文化圏の豆知識',
                 ko: '한자문화권 토막상식', zh: '汉字文化圈小知识', yue: '漢字文化圈小知識',
@@ -4463,7 +4467,7 @@
                 pt: 'Curiosidades da Sinosfera', pt: 'Curiosidades da Sinosfera',
                 ru: 'Факты о синосфере', uk: 'Факти про синосферу',
                 ar: 'طرائف الفضاء الصيني', he: 'טריוויה על הסינוספרה',
-                sw: 'Mambo ya Sinosphia',
+                sw: 'Mambo ya Sinosphia', pl: 'Ciekawostki o sinosferze',
             },
             triviaButtonShort: {
                 // Compact label for the mobile header bar where horizontal
@@ -4479,7 +4483,7 @@
                 pt: 'Curiosidades', pt: 'Curiosidades',
                 ru: 'Факты', uk: 'Факти',
                 ar: 'طرائف', he: 'טריוויה',
-                sw: 'Mambo',
+                sw: 'Mambo', pl: 'Ciekawostki',
             },
             triviaEyebrow: {
                 en: 'Linguistic Trivia', ja: '言語学の豆知識',
@@ -4492,7 +4496,7 @@
                 pt: 'Curiosidades linguísticas', pt: 'Curiosidades linguísticas',
                 ru: 'Лингвистические факты', uk: 'Лінгвістичні факти',
                 ar: 'طرائف لغوية', he: 'טריוויה לשונית',
-                sw: 'Mambo ya Kiisimu',
+                sw: 'Mambo ya Kiisimu', pl: 'Ciekawostki lingwistyczne',
             },
             triviaClose: {
                 en: 'Close', ja: '閉じる', ko: '닫기', zh: '关闭', yue: '關閉',
@@ -4501,7 +4505,7 @@
                 es: 'Cerrar', es: 'Cerrar',
                 pt: 'Fechar', pt: 'Fechar',
                 ru: 'Закрыть', uk: 'Закрити',
-                ar: 'إغلاق', he: 'סגירה', sw: 'Funga',
+                ar: 'إغلاق', he: 'סגירה', sw: 'Funga', pl: 'Zamknij',
             },
             tilesRevert: {
                 en: '↩ Plain map', ja: '↩ 通常の地図に戻す',
@@ -4513,7 +4517,7 @@
                 es: '↩ Mapa plano', pt: '↩ Mapa plano',
                 ru: '↩ Обычная карта', uk: '↩ Звичайна мапа',
                 ar: '↩ خريطة عادية', he: '↩ מפה רגילה',
-                sw: '↩ Ramani ya kawaida',
+                sw: '↩ Ramani ya kawaida', pl: '↩ Zwykła mapa',
             },
             triviaBack: {
                 en: '← Articles', ja: '← 記事一覧',
@@ -4524,7 +4528,7 @@
                 es: '← Artículos', pt: '← Artigos',
                 ru: '← Статьи', uk: '← Статті',
                 ar: '← قائمة المقالات', he: '← רשימת מאמרים',
-                sw: '← Makala',
+                sw: '← Makala', pl: '← Artykuły',
             },
             triviaIndexIntro: {
                 en: 'Pick a topic to dive in.',
@@ -4546,6 +4550,7 @@
                 th: 'เลือกหัวข้อที่สนใจ',
                 id: 'Pilih topik.',
                 hi: 'कोई विषय चुनें।',
+                pl: 'Wybierz temat.',
             },
             triviaNavPrev: {
                 en: '← Previous', ja: '← 前の記事',
@@ -4554,7 +4559,7 @@
                 de: '← Vorheriger', fr: '← Précédent', it: '← Precedente',
                 es: '← Anterior', pt: '← Anterior',
                 ru: '← Назад', uk: '← Назад',
-                ar: '← السابق', he: '← הקודם', sw: '← Iliyotangulia',
+                ar: '← السابق', he: '← הקודם', sw: '← Iliyotangulia', pl: '← Wróć',
             },
             triviaNavNext: {
                 en: 'Next →', ja: '次の記事 →',
@@ -4563,7 +4568,7 @@
                 de: 'Nächster →', fr: 'Suivant →', it: 'Successivo →',
                 es: 'Siguiente →', pt: 'Próximo →',
                 ru: 'Далее →', uk: 'Далі →',
-                ar: 'التالي →', he: 'הבא →', sw: 'Inayofuata →',
+                ar: 'التالي →', he: 'הבא →', sw: 'Inayofuata →', pl: 'Dalej →'
             },
             triviaCompareTitle: {
                 en: 'Compare across languages', ja: '言語間で比較',
@@ -4573,7 +4578,7 @@
                 de: 'Sprachvergleich', fr: 'Comparaison',
                 it: 'Confronto', es: 'Comparación', pt: 'Comparação',
                 ru: 'Сравнение', uk: 'Порівняння',
-                ar: 'مقارنة', he: 'השוואה', sw: 'Linganisha',
+                ar: 'مقارنة', he: 'השוואה', sw: 'Linganisha', pl: 'Porównanie'
             },
             triviaSources: {
                 en: 'Sources & further reading', ja: '出典・参考文献',
@@ -4586,7 +4591,7 @@
                 ru: 'Источники и литература', uk: 'Джерела й література',
                 ar: 'المصادر والقراءات الإضافية',
                 he: 'מקורות וקריאה נוספת',
-                sw: 'Vyanzo na masomo zaidi',
+                sw: 'Vyanzo na masomo zaidi', pl: 'Źródła i literatura',
             },
             triviaExpand: { en: '⤢' },  // icon-only; full phrase in triviaExpandTitle
             triviaExpandTitle: {
@@ -4609,6 +4614,7 @@
                 th: 'ขยายบทความเต็มหน้าจอ',
                 id: 'Perluas artikel ke layar penuh',
                 hi: 'लेख को पूरी स्क्रीन तक विस्तार करें',
+                pl: 'Rozszerz artykuł na pełen ekran',
             },
         };
         function i18n(key) {
@@ -5150,7 +5156,7 @@
                     en:'Select character', de:'Han-Zeichen wählen', fr:'Choisir un caractère han',
                     it:'Scegli un carattere Han', es:'Elegir carácter Han', pt:'Escolher caractere Han',
                     ru:'Выбрать иероглиф', uk:'Обрати ієрогліф', ar:'اختر حرفًا',
-                    he:'בחר תו האן', sw:'Chagua herufi ya Han',
+                    he:'בחר תו האן', sw:'Chagua herufi ya Han', pl:'Wybierz znak',
                 };
                 const t = document.getElementById('char-modal-title');
                 if (t) t.textContent = TITLES[ui] || TITLES.en;
@@ -5159,7 +5165,7 @@
                     vi:'Ngẫu nhiên', th:'สุ่ม', id:'Acak', hi:'यादृच्छिक',
                     en:'Random', de:'Zufall', fr:'Aléatoire', it:'Casuale',
                     es:'Aleatorio', pt:'Aleatório', ru:'Случайный', uk:'Випадкове',
-                    ar:'عشوائي', he:'אקראי', sw:'Bahatisha',
+                    ar:'عشوائي', he:'אקראי', sw:'Bahatisha', pl:'Losowy',
                 };
                 const r = document.getElementById('char-random-label');
                 if (r) r.textContent = RAND[ui] || RAND.en;
@@ -5213,8 +5219,8 @@
         eraModern.addEventListener('click', () => setEra(false));
         eraHistorical.addEventListener('click', () => setEra(true));
 
-        const ON_LBL  = { en:'ON',  ja:'オン',  ko:'켜짐',   zh:'开',    yue:'開',    vi:'BẬT', th:'เปิด',  id:'AKTIF',   hi:'चालू',     de:'EIN',   fr:'ACTIF',  it:'ATTIVO',  es:'ACT.',  pt:'LIG.',  ru:'ВКЛ', uk:'УВІМК', ar:'تشغيل',   he:'פעיל',  sw:'WASHA' };
-        const OFF_LBL = { en:'OFF', ja:'オフ',  ko:'꺼짐',   zh:'关',    yue:'關',    vi:'TẮT', th:'ปิด',   id:'NONAKTIF', hi:'बंद',      de:'AUS',   fr:'INACTIF', it:'INATTIVO', es:'INACT.', pt:'DESLIG.', ru:'ВЫКЛ', uk:'ВИМКН', ar:'إيقاف',  he:'כבוי',  sw:'ZIMA' };
+        const ON_LBL  = { en:'ON',  ja:'オン',  ko:'켜짐',   zh:'开',    yue:'開',    vi:'BẬT', th:'เปิด',  id:'AKTIF',   hi:'चालू',     de:'EIN',   fr:'ACTIF',  it:'ATTIVO',  es:'ACT.',  pt:'LIG.',  ru:'ВКЛ', uk:'УВІМК', ar:'تشغيل',   he:'פעיל',  sw:'WASHA', pl: "WŁ" };
+        const OFF_LBL = { en:'OFF', ja:'オフ',  ko:'꺼짐',   zh:'关',    yue:'關',    vi:'TẮT', th:'ปิด',   id:'NONAKTIF', hi:'बंद',      de:'AUS',   fr:'INACTIF', it:'INATTIVO', es:'INACT.', pt:'DESLIG.', ru:'ВЫКЛ', uk:'ВИМКН', ar:'إيقاف',  he:'כבוי',  sw:'ZIMA', pl: "WYŁ" };
         function updateOnOff(btn, on) {
             const oo = btn.querySelector('.onoff');
             if (!oo) return;
@@ -5477,7 +5483,7 @@
         // Hanmap: initial character is 一 (first in HAN_LIST). The legacy
         // `select.value` is kept in sync with this via the char-modal handler.
         let currentWord = (typeof HAN_LIST !== 'undefined' && HAN_LIST[0]) || '一';
-        const MAJOR = new Set(['ja','ko','zh','en','de','fr','es','pt','ru','ar','hi','vi','th','id','tr','sw','fa','eo']);
+        const MAJOR = new Set(['ja','ko','zh','en','de','fr','es','pt','ru','ar','hi','vi','th','id','tr','sw','fa','eo', 'pl']);
 
         // Historical-mode codes → representative modern descendant (or null).
         // Used both as the canonical list of "show in historical mode" languages
@@ -6288,99 +6294,99 @@
             ja_ojp:     { ja:'上代日本音', ko:'고대 일본음', zh:'上代日語音', yue:'上代日語音',
                           en:'Old Japanese SX', fr:'Vieux jap. SX', de:'Altjap. SJ', es:'Sino-jap. antiguo', pt:'Sino-jap. antigo', it:'Sino-giapp. antico',
                           ru:'Др.-яп. СЯ', uk:'Давньояп. СЯ', ar:'يابانية قديمة (SX)', he:'יפנית עתיקה SX', sw:'Sino-Kijapani cha kale',
-                          vi:'Hán-Nhật cổ', th:'จีน-ญี่ปุ่นเก่า', id:'Sino-Jepang Kuno', hi:'पुरानी सिनो-जापानी' },
+                          vi:'Hán-Nhật cổ', th:'จีน-ญี่ปุ่นเก่า', id:'Sino-Jepang Kuno', hi:'पुरानी सिनो-जापानी', pl: 'Sino-starojap.' },
             ko_zai:     { ja:'在日韓国音', ko:'재일 한국음', zh:'在日韓國音', yue:'在日韓國音',
                           en:'Zainichi SK', fr:'SC zainichi', de:'Zainichi-SK', es:'Sino-coreano zainichi', pt:'Sino-coreano zainichi', it:'Sino-coreano zainichi',
                           ru:'Дзайнити СК', uk:'Дзайнічі СК', ar:'سينو-كورية زاينيتشي', he:'סינו-קוריאנית זאיניצ׳י', sw:'Kikorea cha Zainichi',
-                          vi:'Hán-Hàn Zainichi', th:'จีน-เกาหลีไซนิจิ', id:'Sino-Korea Zainichi', hi:'जैनिची सिनो-कोरियाई' },
+                          vi:'Hán-Hàn Zainichi', th:'จีน-เกาหลีไซนิจิ', id:'Sino-Korea Zainichi', hi:'जैनिची सिनो-कोरियाई', pl: 'Sino-kor. Zainichi' },
             ko_mid:     { ja:'中世韓国音', ko:'중세 한국음', zh:'中世韓國音', yue:'中世韓國音',
                           en:'M. Korean SK', fr:'SC moy. coréen', de:'M.-Kor. SK', es:'Sino-cor. medio', pt:'Sino-cor. médio', it:'Sino-cor. medio',
                           ru:'Ср.-кор. СК', uk:'Сер.-кор. СК', ar:'سينو-كورية وسطى', he:'סינו-קוריאנית תיכונה', sw:'Sino-Kikorea cha kati',
-                          vi:'Hán-Hàn trung cổ', th:'จีน-เกาหลีกลาง', id:'Sino-Korea Pertengahan', hi:'मध्य सिनो-कोरियाई' },
+                          vi:'Hán-Hàn trung cổ', th:'จีน-เกาหลีกลาง', id:'Sino-Korea Pertengahan', hi:'मध्य सिनो-कोरियाई', pl:'Sino-średniokor.' },
             ko_hun:     { ja:'韓国訓 (固有)', ko:'한국 훈독', zh:'韓國訓讀', yue:'韓國訓讀',
                           en:'Korean kun', fr:'Kun coréen', de:'Kor. Kun-Lesung', es:'Lectura kun coreana', pt:'Leitura kun coreana', it:'Lettura kun cor.',
                           ru:'Кор. кун', uk:'Кор. кун', ar:'قراءة كون كورية', he:'קריאת קוּן קוריאנית', sw:'Kun ya Kikorea',
-                          vi:'Huấn đọc Hàn', th:'อ่านคุนเกาหลี', id:'Kun Korea', hi:'कोरियाई कुन' },
+                          vi:'Huấn đọc Hàn', th:'อ่านคุนเกาหลี', id:'Kun Korea', hi:'कोरियाई कुन', pl: 'Koreański kun' },
             ja_kun:     { ja:'訓読み', ko:'일본 훈독', zh:'日語訓讀', yue:'日語訓讀',
                           en:'Kun-yomi', fr:'Kun-yomi', de:'Kun-Lesung', es:'Lectura kun', pt:'Leitura kun', it:'Lettura kun',
                           ru:'Кунъёми', uk:'Кунйомі', ar:'كون-يومي', he:'קוּן-יוֹמי', sw:'Kun-yomi',
-                          vi:'Kun-yomi', th:'คุนโยมิ', id:'Kun-yomi', hi:'कुन-योमी' },
+                          vi:'Kun-yomi', th:'คุนโยมิ', id:'Kun-yomi', hi:'कुन-योमी', pl:'Kun\'yomi' },
             ja_kgs:     { ja:'鹿児島漢字音', ko:'가고시마 한자음', zh:'鹿兒島漢字音', yue:'鹿兒島漢字音',
                           en:'Kagoshima SJ', fr:'SJ Kagoshima', de:'SJ Kagoshima', es:'SJ Kagoshima', pt:'SJ Kagoshima', it:'SJ Kagoshima',
                           ru:'СЯ Кагосима', uk:'СЯ Каґосіма', ar:'سينو-يابانية كاغوشيما', he:'סינו-יפנית קאגושימה', sw:'SJ Kagoshima',
-                          vi:'Hán-Nhật Kagoshima', th:'จีน-ญี่ปุ่นคาโงชิมะ', id:'SJ Kagoshima', hi:'सिनो-जा. कागोशिमा' },
+                          vi:'Hán-Nhật Kagoshima', th:'จีน-ญี่ปุ่นคาโงชิมะ', id:'SJ Kagoshima', hi:'सिनो-जा. कागोशिमा', pl:'SJ Kagoszima' },
             ja_okn:     { ja:'沖縄漢字音', ko:'오키나와 한자음', zh:'沖繩漢字音', yue:'沖繩漢字音',
                           en:'Okinawa SJ', fr:'SJ Okinawa', de:'SJ Okinawa', es:'SJ Okinawa', pt:'SJ Okinawa', it:'SJ Okinawa',
                           ru:'СЯ Окинава', uk:'СЯ Окінава', ar:'سينو-يابانية أوكيناوا', he:'סינו-יפנית אוקינאווה', sw:'SJ Okinawa',
-                          vi:'Hán-Nhật Okinawa', th:'จีน-ญี่ปุ่นโอกินาวะ', id:'SJ Okinawa', hi:'सिनो-जा. ओकिनावा' },
+                          vi:'Hán-Nhật Okinawa', th:'จีน-ญี่ปุ่นโอกินาวะ', id:'SJ Okinawa', hi:'सिनो-जा. ओकिनावा', pl:'SJ Okinawa' },
             ja_thk:     { ja:'東北漢字音', ko:'도호쿠 한자음', zh:'東北漢字音', yue:'東北漢字音',
                           en:'Tōhoku SJ', fr:'SJ Tōhoku', de:'SJ Tōhoku', es:'SJ Tōhoku', pt:'SJ Tōhoku', it:'SJ Tōhoku',
                           ru:'СЯ Тохоку', uk:'СЯ Тохоку', ar:'سينو-يابانية توهوكو', he:'סינו-יפנית טוהוקו', sw:'SJ Tōhoku',
-                          vi:'Hán-Nhật Tōhoku', th:'จีน-ญี่ปุ่นโทโฮกุ', id:'SJ Tōhoku', hi:'सिनो-जा. तोहोकु' },
+                          vi:'Hán-Nhật Tōhoku', th:'จีน-ญี่ปุ่นโทโฮกุ', id:'SJ Tōhoku', hi:'सिनो-जा. तोहोकु', pl:'SJ Tōhoku' },
             vi_ohan:    { ja:'古漢越音', ko:'고대 한월음', zh:'古漢越音', yue:'古漢越音',
                           en:'Old SV', fr:'Sino-V. anc.', de:'Alt-Sino-V.', es:'Sino-viet. ant.', pt:'Sino-viet. ant.', it:'Sino-viet. ant.',
                           ru:'Др. сино-вьет.', uk:'Давн. сино-в\'єт.', ar:'سينو-فيتنامية قديمة', he:'סינו-וייטנאמית עתיקה', sw:'Sino-Viet ya kale',
-                          vi:'Cổ Hán-Việt', th:'จีน-เวียดเก่า', id:'Sino-Viet Kuno', hi:'पुरानी सिनो-वियतनामी' },
+                          vi:'Cổ Hán-Việt', th:'จีน-เวียดเก่า', id:'Sino-Viet Kuno', hi:'पुरानी सिनो-वियतनामी', pl:'Sino-starowiet.' },
             vi_han:     { ja:'漢越音', ko:'한월음', zh:'漢越音', yue:'漢越音',
                           en:'Sino-Viet', fr:'Sino-V.', de:'Sino-V.', es:'Sino-viet.', pt:'Sino-viet.', it:'Sino-viet.',
                           ru:'Сино-вьет.', uk:'Сино-в\'єт.', ar:'سينو-فيتنامية', he:'סינו-וייטנאמית', sw:'Sino-Kivietinamu',
-                          vi:'Hán-Việt', th:'จีน-เวียด', id:'Sino-Viet', hi:'सिनो-वियतनामी' },
+                          vi:'Hán-Việt', th:'จีน-เวียด', id:'Sino-Viet', hi:'सिनो-वियतनामी', pl:'Sino-wiet.' },
             vi_nom:     { ja:'字喃', ko:'쯔놈', zh:'喃字', yue:'喃字',
                           en:'Chữ Nôm', fr:'Chữ Nôm', de:'Chữ Nôm', es:'Chữ Nôm', pt:'Chữ Nôm', it:'Chữ Nôm',
                           ru:'Тьы-ном', uk:'Тьи-ном', ar:'تشو نوم', he:'צ׳ו נום', sw:'Chữ Nôm',
-                          vi:'Chữ Nôm', th:'จื๋อโนม', id:'Chữ Nôm', hi:'चु नोम' },
+                          vi:'Chữ Nôm', th:'จื๋อโนม', id:'Chữ Nôm', hi:'चु नोम', pl:'Chữ Nôm' },
             bo_sino:    { ja:'現代蔵音', ko:'현대 티베트음', zh:'現代藏音', yue:'現代藏音',
                           en:'Mod. Tibetan', fr:'Tibét. mod.', de:'Mod. Tib.', es:'Tibet. mod.', pt:'Tibet. mod.', it:'Tibet. mod.',
                           ru:'Совр. тибет.', uk:'Суч. тибет.', ar:'تبتية حديثة', he:'טיבטית מודרנית', sw:'Kitibeti cha kisasa',
-                          vi:'Tạng hiện đại', th:'ทิเบตสมัยใหม่', id:'Tibet Modern', hi:'आधुनिक तिब्बती' },
+                          vi:'Tạng hiện đại', th:'ทิเบตสมัยใหม่', id:'Tibet Modern', hi:'आधुनिक तिब्बती', pl:'Wsp. tybet.' },
             zh_phagspa: { ja:'八思巴字音', ko:'파스파 음', zh:'八思巴字音', yue:'八思巴字音',
                           en:'Phags-pa', fr:'Phags-pa', de:'Phags-pa', es:'Phags-pa', pt:'Phags-pa', it:'Phags-pa',
                           ru:'Пагба', uk:'Паґба', ar:'فاكس-با', he:'פאגס-פא', sw:'Phags-pa',
-                          vi:'Phags-pa', th:'พักปา', id:'Phags-pa', hi:'फग्स-पा' },
+                          vi:'Phags-pa', th:'พักปา', id:'Phags-pa', hi:'फग्स-पा', pl:'Phags-pa' },
             zh_yuan:    { ja:'元代官話', ko:'원대 관화', zh:'元代官話', yue:'元代官話',
                           en:'Yuan Mand.', fr:'Mand. Yuan', de:'Yuan-Mand.', es:'Mandarín Yuan', pt:'Mandarim Yuan', it:'Mandarino Yuan',
                           ru:'Юаньский кит.', uk:'Юанський кит.', ar:'ماندرين يوان', he:'מנדרינית יואן', sw:'Mandarin ya Yuan',
-                          vi:'Quan thoại Nguyên', th:'แมนดารินหยวน', id:'Mandarin Yuan', hi:'युआन मंदारिन' },
+                          vi:'Quan thoại Nguyên', th:'แมนดารินหยวน', id:'Mandarin Yuan', hi:'युआन मंदारिन', pl:'Mand. Yuan' },
             zh_kanbun:  { ja:'漢文訓読', ko:'한문 훈독', zh:'漢文訓讀', yue:'漢文訓讀',
                           en:'Kanbun', fr:'Kanbun', de:'Kanbun', es:'Kanbun', pt:'Kanbun', it:'Kanbun',
                           ru:'Камбун', uk:'Камбун', ar:'كانبون', he:'קאנבון', sw:'Kanbun',
-                          vi:'Kanbun', th:'คันบุน', id:'Kanbun', hi:'कानबुन' },
+                          vi:'Kanbun', th:'คันบุน', id:'Kanbun', hi:'कानबुन', pl:'Kanbun' },
             zh_th:      { ja:'タイ華僑音', ko:'태국 화교음', zh:'泰國華僑音', yue:'泰國華僑音',
                           en:'TH Mandarin', fr:'Mand. TH', de:'TH-Mandarin', es:'Mandarín TH', pt:'Mandarim TH', it:'Mandarino TH',
                           ru:'Тайск. кит.', uk:'Тайськ. кит.', ar:'ماندرين تايلاند', he:'מנדרינית תאי', sw:'Mandarin ya TH',
-                          vi:'Quan thoại Thái', th:'แมนดารินไทย', id:'Mandarin TH', hi:'थाई मंदारिन' },
+                          vi:'Quan thoại Thái', th:'แมนดารินไทย', id:'Mandarin TH', hi:'थाई मंदारिन', pl:'Mand. tajl.' },
             zh_tw:      { ja:'台灣華語', ko:'타이완 국어', zh:'台灣華語', yue:'台灣華語',
                           en:'Taiwan Mand.', fr:'Mand. Taïwan', de:'Mand. (TW)', es:'Mandarín TW', pt:'Mandarim TW', it:'Mandarino TW',
                           ru:'Тайв. кит.', uk:'Тайв. кит.', ar:'ماندرين تايوان', he:'מנדרינית טייוואן', sw:'Mandarin ya Taiwan',
-                          vi:'Quan thoại Đài', th:'แมนดารินไต้หวัน', id:'Mandarin TW', hi:'ताइवानी मंदारिन' },
+                          vi:'Quan thoại Đài', th:'แมนดารินไต้หวัน', id:'Mandarin TW', hi:'ताइवानी मंदारिन', pl:'Mand. tajw.' },
             zh_us:      { ja:'北米華僑音', ko:'북미 화교음', zh:'北美華僑音', yue:'北美華僑音',
                           en:'US Chinese', fr:'Sino-USA', de:'US-Chinesisch', es:'Chino EE.UU.', pt:'Chinês EUA', it:'Cinese USA',
                           ru:'Амер. кит.', uk:'Амер. кит.', ar:'صينية أمريكية', he:'סינית אמריקאית', sw:'Kichina cha Marekani',
-                          vi:'Hoa kiều Mỹ', th:'จีนอเมริกัน', id:'Mandarin AS', hi:'अमेरिकी चीनी' },
+                          vi:'Hoa kiều Mỹ', th:'จีนอเมริกัน', id:'Mandarin AS', hi:'अमेरिकी चीनी', pl:'Chiński USA' },
             yue_us:     { ja:'北米広東語', ko:'북미 광동어', zh:'北美粵語', yue:'北美粵語',
                           en:'US Cantonese', fr:'Cant. USA', de:'US-Kantones.', es:'Cantonés EE.UU.', pt:'Cantonês EUA', it:'Cantonese USA',
                           ru:'Амер. кантон.', uk:'Амер. кантон.', ar:'كانتونية أمريكية', he:'קנטונזית אמריקאית', sw:'Kikanton cha Marekani',
-                          vi:'Quảng Đông Mỹ', th:'กวางตุ้งอเมริกัน', id:'Kanton AS', hi:'अमेरिकी कैंटोनी' },
+                          vi:'Quảng Đông Mỹ', th:'กวางตุ้งอเมริกัน', id:'Kanton AS', hi:'अमेरिकी कैंटोनी', pl:'Kant. USA' },
             nan_pera:   { ja:'プラナカン福建語', ko:'프라나칸 민남어', zh:'娘惹福建話', yue:'娘惹福建話',
                           en:'Peranakan', fr:'Peranakan', de:'Peranakan', es:'Peranakan', pt:'Peranakan', it:'Peranakan',
                           ru:'Перанаканский', uk:'Перанаканський', ar:'بيرانكان', he:'פרנקאן', sw:'Peranakan',
-                          vi:'Peranakan', th:'เปอรานากัน', id:'Peranakan', hi:'पेरानाकन' },
+                          vi:'Peranakan', th:'เปอรานากัน', id:'Peranakan', hi:'पेरानाकन', pl:'Peranakański' },
             nan_id:     { ja:'インドネシア福建語', ko:'인도네시아 민남어', zh:'印尼福建話', yue:'印尼福建話',
                           en:'ID Hokkien', fr:'Hokkien ID', de:'ID-Hokkien', es:'Hokkien ID', pt:'Hoquien ID', it:'Hokkien ID',
                           ru:'Индонез. хоккиен', uk:'Індонез. хоккієн', ar:'هوكين إندونيسيا', he:'הוקין אינדונזיה', sw:'Hokkien ya ID',
-                          vi:'Hokkien ID', th:'ฮกเกี้ยน ID', id:'Hokkien ID', hi:'इंडोनेशियाई होक्किएन' },
+                          vi:'Hokkien ID', th:'ฮกเกี้ยน ID', id:'Hokkien ID', hi:'इंडोनेशियाई होक्किएन', pl: 'Hokkien indon.' },
             nan_my:     { ja:'マレーシア福建語', ko:'말레이시아 민남어', zh:'馬來西亞福建話', yue:'馬來西亞福建話',
                           en:'MY Hokkien', fr:'Hokkien MY', de:'MY-Hokkien', es:'Hokkien MY', pt:'Hoquien MY', it:'Hokkien MY',
                           ru:'Малайз. хоккиен', uk:'Малайз. хоккієн', ar:'هوكين ماليزيا', he:'הוקין מלזיה', sw:'Hokkien ya MY',
-                          vi:'Hokkien MY', th:'ฮกเกี้ยน MY', id:'Hokkien MY', hi:'मलेशियाई होक्किएन' },
+                          vi:'Hokkien MY', th:'ฮกเกี้ยน MY', id:'Hokkien MY', hi:'मलेशियाई होक्किएन', pl:'Hokkien mal.' },
             nan_sg:     { ja:'シンガポール福建語', ko:'싱가포르 민남어', zh:'新加坡福建話', yue:'新加坡福建話',
                           en:'SG Hokkien', fr:'Hokkien SG', de:'SG-Hokkien', es:'Hokkien SG', pt:'Hoquien SG', it:'Hokkien SG',
                           ru:'Сингап. хоккиен', uk:'Сингап. хоккієн', ar:'هوكين سنغافورة', he:'הוקין סינגפור', sw:'Hokkien ya SG',
-                          vi:'Hokkien SG', th:'ฮกเกี้ยน SG', id:'Hokkien SG', hi:'सिंगापुरी होक्किएन' },
+                          vi:'Hokkien SG', th:'ฮกเกี้ยน SG', id:'Hokkien SG', hi:'सिंगापुरी होक्किएन', pl:'Hokkien sing.' },
             nan_th:     { ja:'タイ華僑潮州語', ko:'태국 화교 조주어', zh:'泰國華僑潮州話', yue:'泰國華僑潮州話',
                           en:'TH Teochew', fr:'Teochew TH', de:'TH-Teochew', es:'Teochew TH', pt:'Teochew TH', it:'Teochew TH',
                           ru:'Тайск. теочиу', uk:'Тайськ. теочіу', ar:'تيوتشيو تايلاند', he:'צ׳אוצ׳ו תאי', sw:'Teochew ya TH',
-                          vi:'Triều Châu TH', th:'แต้จิ๋วไทย', id:'Teochew TH', hi:'थाई तेओचेव' },
+                          vi:'Triều Châu TH', th:'แต้จิ๋วไทย', id:'Teochew TH', hi:'थाई तेओचेव', pl:'Teochew tajl.' },
             sjo:        { ja:'シベ語', ko:'시버어', zh:'錫伯語', yue:'錫伯語',
                           en:'Xibe', fr:'Xibé', de:'Sibe', es:'Sibe', pt:'Sibe', it:'Sibe',
                           ru:'Сибо', uk:'Сібо', ar:'الشيبية', he:'שיבה', sw:'Kixibe',
@@ -6388,65 +6394,65 @@
             ja_heian:   { ja:'平安日本語', ko:'헤이안 일본어', zh:'平安日語', yue:'平安日語',
                           en:'Heian J.', fr:'Jap. Heian', de:'Heian-Jap.', es:'Japonés Heian', pt:'Jap. Heian', it:'Giapp. Heian',
                           ru:'Хэйанский яп.', uk:'Хейанська яп.', ar:'يابانية هيآن', he:'יפנית הייאן', sw:'Kijapani cha Heian',
-                          vi:'Nhật Heian', th:'ญี่ปุ่นเฮอัน', id:'Jepang Heian', hi:'हेइआन जापानी' },
+                          vi:'Nhật Heian', th:'ญี่ปุ่นเฮอัน', id:'Jepang Heian', hi:'हेइआन जापानी', pl:'Sibiński' },
             ja_edo:     { ja:'江戸日本語', ko:'에도 일본어', zh:'江戶日語', yue:'江戶日語',
                           en:'Edo J.', fr:'Jap. Edo', de:'Edo-Jap.', es:'Japonés Edo', pt:'Jap. Edo', it:'Giapp. Edo',
                           ru:'Эдоский яп.', uk:'Едоська яп.', ar:'يابانية إيدو', he:'יפנית אדו', sw:'Kijapani cha Edo',
-                          vi:'Nhật Edo', th:'ญี่ปุ่นเอโดะ', id:'Jepang Edo', hi:'एदो जापानी' },
+                          vi:'Nhật Edo', th:'ญี่ปุ่นเอโดะ', id:'Jepang Edo', hi:'एदो जापानी', pl:'Jap. Edo' },
             wuu:        { ja:'上海語', ko:'상하이어', zh:'上海話', yue:'上海話',
                           en:'Shanghainese', fr:'Shanghaïen', de:'Shanghaiisch', es:'Shanghainés', pt:'Xangainês', it:'Shanghainese',
                           ru:'Шанхайский', uk:'Шанхайська', ar:'الشانغهاينية', he:'שנגחאית', sw:'Kishanghai',
-                          vi:'Tiếng Thượng Hải', th:'ภาษาเซี่ยงไฮ้', id:'Shanghai', hi:'शंघाईनी' },
+                          vi:'Tiếng Thượng Hải', th:'ภาษาเซี่ยงไฮ้', id:'Shanghai', hi:'शंघाईनी', pl:'Szanghajski' },
             zh_jiao:    { ja:'膠遼官話', ko:'자오랴오 관화', zh:'膠遼官話', yue:'膠遼官話',
                           en:'Jiao-Liao M.', fr:'Mand. Jiao-Liao', de:'Jiao-Liao-M.', es:'Mand. Jiao-Liao', pt:'Mand. Jiao-Liao', it:'Mand. Jiao-Liao',
                           ru:'Цзяо-ляоский', uk:'Цзяо-ляоський', ar:'ماندرين جياو-لياو', he:'מנדרינית ג׳יאו-ליאו', sw:'Mandarin ya Jiao-Liao',
-                          vi:'Giao-Liêu', th:'แมนดารินเจียวเหลียว', id:'Mandarin Jiao-Liao', hi:'जिआओ-लियाओ' },
+                          vi:'Giao-Liêu', th:'แมนดารินเจียวเหลียว', id:'Mandarin Jiao-Liao', hi:'जिआओ-लियाओ', pl:'Mand. Jiaoliao' },
             hak_mz:     { ja:'梅縣客家語', ko:'메이셴 객가어', zh:'梅縣客家話', yue:'梅縣客家話',
                           en:'Meixian Hakka', fr:'Hakka Meixian', de:'Meixian-Hakka', es:'Hakka Meixian', pt:'Hakka Meixian', it:'Hakka Meixian',
                           ru:'Мэйсяньский хакка', uk:'Мейсяньський хакка', ar:'هكّا ميشيان', he:'האקה מייסיאן', sw:'Hakka ya Meixian',
-                          vi:'Khách Gia Mai', th:'แคะเหมยเซี่ยน', id:'Hakka Meixian', hi:'मेइसिएन हक्का' },
+                          vi:'Khách Gia Mai', th:'แคะเหมยเซี่ยน', id:'Hakka Meixian', hi:'मेइसिएन हक्का', pl:'Hakka Meixian' },
             zh_gl:      { ja:'桂柳官話', ko:'구이류 관화', zh:'桂柳官話', yue:'桂柳官話',
                           en:'Guiliu Mand.', fr:'Mand. Guiliu', de:'Guiliu-Mand.', es:'Mand. Guiliu', pt:'Mand. Guiliu', it:'Mand. Guiliu',
                           ru:'Гуй-лючжоуский', uk:'Гуй-лючжоуський', ar:'ماندرين غوي-ليو', he:'מנדרינית גוּי-ליוּ', sw:'Mandarin ya Gui-Liu',
-                          vi:'Quế-Liễu', th:'แมนดารินกุ้ย-หลิว', id:'Mandarin Gui-Liu', hi:'गुई-लियू' },
+                          vi:'Quế-Liễu', th:'แมนดารินกุ้ย-หลิว', id:'Mandarin Gui-Liu', hi:'गुई-लियू', pl:'Mand. Guiliu' },
             // Proto languages — shorten "祖語" to "祖" suffix for compactness.
             // Non-CJK UIs use "Proto-XX" style shorthand.
             pst:  { ja:'漢蔵祖', ko:'한장조어', zh:'漢藏祖', yue:'漢藏祖',
                     en:'Proto-ST', fr:'Proto-ST', de:'Proto-ST', es:'Proto-ST', pt:'Proto-ST', it:'Proto-ST',
                     ru:'Прасино-тибет.', uk:'Прасино-тибет.', ar:'صينو-تبتية أصلية', he:'פרוטו-סינו-טיבטית', sw:'Proto-ST',
-                    vi:'Hán-Tạng nguyên', th:'โปรโต-จีน-ทิเบต', id:'Proto-Sino-Tibet', hi:'प्रोटो-सिनो-तिब्बती' },
+                    vi:'Hán-Tạng nguyên', th:'โปรโต-จีน-ทิเบต', id:'Proto-Sino-Tibet', hi:'प्रोटो-सिनो-तिब्बती', pl:'Prasino-tybet.' },
             ptb:  { ja:'蔵緬祖', ko:'장면조어', zh:'藏緬祖', yue:'藏緬祖',
                     en:'Proto-TB', fr:'Proto-TB', de:'Proto-TB', es:'Proto-TB', pt:'Proto-TB', it:'Proto-TB',
                     ru:'Пратибето-бирм.', uk:'Пратибето-бірм.', ar:'تبتو-بورمية أصلية', he:'פרוטו-טיבטו-בורמית', sw:'Proto-TB',
-                    vi:'Tạng-Miến nguyên', th:'โปรโต-ทิเบต-พม่า', id:'Proto-Tibet-Burma', hi:'प्रोटो-तिब्बती-बर्मी' },
+                    vi:'Tạng-Miến nguyên', th:'โปรโต-ทิเบต-พม่า', id:'Proto-Tibet-Burma', hi:'प्रोटो-तिब्बती-बर्मी', pl:'Pratybeto-birm.' },
             pko:  { ja:'朝鮮祖', ko:'조선조어', zh:'朝鮮祖', yue:'朝鮮祖',
                     en:'Proto-K', fr:'Proto-K', de:'Proto-K', es:'Proto-K', pt:'Proto-K', it:'Proto-K',
                     ru:'Пракорейский', uk:'Пракорейська', ar:'كورية أصلية', he:'פרוטו-קוריאנית', sw:'Proto-K',
-                    vi:'Hàn nguyên', th:'โปรโต-เกาหลี', id:'Proto-Korea', hi:'प्रोटो-कोरियाई' },
+                    vi:'Hàn nguyên', th:'โปรโต-เกาหลี', id:'Proto-Korea', hi:'प्रोटो-कोरियाई', pl: 'Prakoreański' },
             pja:  { ja:'日本祖', ko:'일본조어', zh:'日本祖', yue:'日本祖',
                     en:'Proto-J', fr:'Proto-J', de:'Proto-J', es:'Proto-J', pt:'Proto-J', it:'Proto-J',
                     ru:'Праяпонский', uk:'Праяпонська', ar:'يابانية أصلية', he:'פרוטו-יפנית', sw:'Proto-J',
-                    vi:'Nhật nguyên', th:'โปรโต-ญี่ปุ่น', id:'Proto-Jepang', hi:'प्रोटो-जापानी' },
+                    vi:'Nhật nguyên', th:'โปรโต-ญี่ปุ่น', id:'Proto-Jepang', hi:'प्रोटो-जापानी', pl:'Prajapoński' },
             ptung:{ ja:'通古斯祖', ko:'퉁구스조어', zh:'通古斯祖', yue:'通古斯祖',
                     en:'Proto-T', fr:'Proto-T', de:'Proto-T', es:'Proto-T', pt:'Proto-T', it:'Proto-T',
                     ru:'Пратунгус.', uk:'Пратунгус.', ar:'تونغوسية أصلية', he:'פרוטו-טונגוסית', sw:'Proto-T',
-                    vi:'Tungus nguyên', th:'โปรโต-ตุงกุส', id:'Proto-Tungus', hi:'प्रोटो-तुंगुसी' },
+                    vi:'Tungus nguyên', th:'โปรโต-ตุงกุส', id:'Proto-Tungus', hi:'प्रोटो-तुंगुसी', pl:'Pratunguski' },
             paa:  { ja:'南亜祖', ko:'남아시아조어', zh:'南亞祖', yue:'南亞祖',
                     en:'Proto-AA', fr:'Proto-AA', de:'Proto-AA', es:'Proto-AA', pt:'Proto-AA', it:'Proto-AA',
                     ru:'Праавстроаз.', uk:'Праавстроаз.', ar:'أسترو-آسيوية أصلية', he:'פרוטו-אוסטרו-אסיאתית', sw:'Proto-AA',
-                    vi:'Nam Á nguyên', th:'โปรโต-ออสโตรเอเชียติก', id:'Proto-Austroasia', hi:'प्रोटो-ऑस्ट्रोएशियाई' },
+                    vi:'Nam Á nguyên', th:'โปรโต-ออสโตรเอเชียติก', id:'Proto-Austroasia', hi:'प्रोटो-ऑस्ट्रोएशियाई', pl:'Praaustroazj.' },
             ptai: { ja:'タイ祖', ko:'타이조어', zh:'壯侗祖', yue:'壯侗祖',
                     en:'Proto-Tai', fr:'Proto-Tai', de:'Proto-Tai', es:'Proto-Tai', pt:'Proto-Tai', it:'Proto-Tai',
                     ru:'Пратайский', uk:'Пратайська', ar:'تاي أصلية', he:'פרוטו-טאי', sw:'Proto-Tai',
-                    vi:'Tai nguyên', th:'โปรโต-ไท', id:'Proto-Tai', hi:'प्रोटो-ताई' },
+                    vi:'Tai nguyên', th:'โปรโต-ไท', id:'Proto-Tai', hi:'प्रोटो-ताई', pl:'Pratajski' },
             pmgl: { ja:'蒙古祖', ko:'몽골조어', zh:'蒙古祖', yue:'蒙古祖',
                     en:'Proto-Mong.', fr:'Proto-Mong.', de:'Proto-Mong.', es:'Proto-Mong.', pt:'Proto-Mong.', it:'Proto-Mong.',
                     ru:'Прамонгольский', uk:'Прамонгольська', ar:'منغولية أصلية', he:'פרוטו-מונגולית', sw:'Proto-Mongol',
-                    vi:'Mông Cổ nguyên', th:'โปรโต-มองโกล', id:'Proto-Mongol', hi:'प्रोटो-मंगोल' },
+                    vi:'Mông Cổ nguyên', th:'โปรโต-มองโกล', id:'Proto-Mongol', hi:'प्रोटो-मंगोल', pl:'Pramongolski' },
             phm:  { ja:'苗瑶祖', ko:'먀오야오조어', zh:'苗瑤祖', yue:'苗瑤祖',
                     en:'Proto-HM', fr:'Proto-HM', de:'Proto-HM', es:'Proto-HM', pt:'Proto-HM', it:'Proto-HM',
                     ru:'Прамяо-яо', uk:'Прамяо-яо', ar:'همونغ-مين أصلية', he:'פרוטו-המונג-מיין', sw:'Proto-HM',
-                    vi:'Miêu-Dao nguyên', th:'โปรโต-ม้ง-เมี่ยน', id:'Proto-Hmong-Mien', hi:'प्रोटो-म्यांग-मियेन' },
+                    vi:'Miêu-Dao nguyên', th:'โปรโต-ม้ง-เมี่ยน', id:'Proto-Hmong-Mien', hi:'प्रोटो-म्यांग-मियेन', pl:'Prahmong-mien' },
         };
         function getDisplayName(code, lang) {
             if (showNative) return lang.native;
@@ -7786,7 +7792,7 @@
             modern: null,
             attested: {
                 bg:'#e8f0fe', fg:'#1a73e8',
-                labels: { en:'attested', ja:'文献あり', ko:'문헌 있음', zh:'文献存在', yue:'文獻存在', vi:'có chứng tích', th:'มีหลักฐาน', id:'terdokumentasi', hi:'प्रमाणित', de:'belegt', fr:'attesté', it:'attestato', es:'atestiguado', es: 'atestiguado', pt:'atestado', pt: 'atestado', ru:'засвидетельствовано', uk:'засвідчено', ar:'مُؤكَّد', he:'מתועד', sw:'imethibitishwa' },
+                labels: { en:'attested', ja:'文献あり', ko:'문헌 있음', zh:'文献存在', yue:'文獻存在', vi:'có chứng tích', th:'มีหลักฐาน', id:'terdokumentasi', hi:'प्रमाणित', de:'belegt', fr:'attesté', it:'attestato', es:'atestiguado', es: 'atestiguado', pt:'atestado', pt: 'atestado', ru:'засвидетельствовано', uk:'засвідчено', ar:'مُؤكَّد', he:'מתועד', sw:'imethibitishwa', pl:'poświadczony' },
                 descs: {
                     en:'Direct primary text corpus exists; values cite real sources.',
                     ja:'直接的な原典コーパスあり、値は実在の出典に依拠。',
@@ -7807,11 +7813,12 @@
                     ar:'يوجد كوربس نصوص أولي مباشر؛ القيم تستشهد بمصادر حقيقية.',
                     he:'קיים קורפוס של טקסטים ראשוניים ישירים; הערכים מצטטים מקורות אמיתיים.',
                     sw:'Kuna korpasi ya maandishi ya msingi ya moja kwa moja; thamani hutaja vyanzo halisi.',
+                    pl:'Bezpośredni główny korpus istnieje; wartości cytują prawdziwe źródła.',
                 },
             },
             fragmentary: {
                 bg:'#fef0e0', fg:'#c0392b',
-                labels: { en:'fragmentary', ja:'断片的', ko:'단편적', zh:'残缺', yue:'殘缺', vi:'mảnh vỡ', th:'เศษเสี้ยว', id:'fragmenter', hi:'खंडित', de:'fragmentarisch', fr:'fragmentaire', it:'frammentario', es:'fragmentario', es: 'fragmentario', pt:'fragmentário', pt: 'fragmentário', ru:'фрагментарный', uk:'фрагментарний', ar:'مُتفرّق', he:'מקוטע', sw:'kipande kipande' },
+                labels: { en:'fragmentary', ja:'断片的', ko:'단편적', zh:'残缺', yue:'殘缺', vi:'mảnh vỡ', th:'เศษเสี้ยว', id:'fragmenter', hi:'खंडित', de:'fragmentarisch', fr:'fragmentaire', it:'frammentario', es:'fragmentario', es: 'fragmentario', pt:'fragmentário', pt: 'fragmentário', ru:'фрагментарный', uk:'фрагментарний', ar:'مُتفرّق', he:'מקוטע', sw:'kipande kipande', pl:'urywkowy' },
                 descs: {
                     en:'Limited isolated attestations; many cells use related-language proxies.',
                     ja:'孤立した断片的資料のみ。多くのセルは近縁言語からの代用形を用いる。',
@@ -7832,11 +7839,12 @@
                     ar:'شهادات معزولة محدودة؛ تستخدم خلايا كثيرة بدائل من لغات قريبة.',
                     he:'אישושים מבודדים מוגבלים; תאים רבים משתמשים בתחליפים משפות קרובות.',
                     sw:'Ushahidi wa pekee uliopungua; visehemu vingi vinatumia mbadala kutoka lugha husiana.',
+                    pl:'Ograniczone izolowona poświadczenia; wiele komórek używa pośrednio powiązane języki.',
                 },
             },
             reconstructed: {
                 bg:'#fff5e0', fg:'#b56500',
-                labels: { en:'reconstructed', ja:'比較再構', ko:'재구', zh:'重构', yue:'重構', vi:'tái dựng', th:'สร้างใหม่', id:'rekonstruksi', hi:'पुनर्निर्मित', de:'rekonstruiert', fr:'reconstitué', it:'ricostruito', es:'reconstruido', es: 'reconstruido', pt:'reconstruído', pt: 'reconstruído', ru:'реконструкция', uk:'реконструйовано', ar:'مُعاد البناء', he:'שוחזר', sw:'imerejeshwa' },
+                labels: { en:'reconstructed', ja:'比較再構', ko:'재구', zh:'重构', yue:'重構', vi:'tái dựng', th:'สร้างใหม่', id:'rekonstruksi', hi:'पुनर्निर्मित', de:'rekonstruiert', fr:'reconstitué', it:'ricostruito', es:'reconstruido', es: 'reconstruido', pt:'reconstruído', pt: 'reconstruído', ru:'реконструкция', uk:'реконструйовано', ar:'مُعاد البناء', he:'שוחזר', sw:'imerejeshwa', pl:'rekonstruowany' },
                 descs: {
                     en:'Comparative reconstruction; no direct text record.',
                     ja:'比較言語学による再構形、直接的な文献記録なし。',
@@ -7857,11 +7865,12 @@
                     ar:'إعادة بناء مقارنة؛ لا يوجد سجل نصي مباشر.',
                     he:'שחזור השוואתי; אין רישום טקסטואלי ישיר.',
                     sw:'Urejeshaji wa kulinganisha; hakuna kumbukumbu ya maandishi ya moja kwa moja.',
+                    pl:'Rekonstrukcja przez porównania; brak bezpośredniego zapisu tekstu.',
                 },
             },
             undeciphered: {
                 bg:'#fae0e0', fg:'#a02020',
-                labels: { en:'undeciphered', ja:'未解読', ko:'미해독', zh:'未解读', yue:'未解讀', vi:'chưa giải mã', th:'ยังไม่ถอดรหัส', id:'belum dipecahkan', hi:'अपठित', de:'unentziffert', fr:'non déchiffré', it:'non decifrato', es:'no descifrado', es: 'no descifrado', pt:'não decifrado', pt: 'não decifrado', ru:'нерасшифровано', uk:'нерозшифроване', ar:'غير مفكوك', he:'לא פוענח', sw:'haijafafanuliwa' },
+                labels: { en:'undeciphered', ja:'未解読', ko:'미해독', zh:'未解读', yue:'未解讀', vi:'chưa giải mã', th:'ยังไม่ถอดรหัส', id:'belum dipecahkan', hi:'अपठित', de:'unentziffert', fr:'non déchiffré', it:'non decifrato', es:'no descifrado', es: 'no descifrado', pt:'não decifrado', pt: 'não decifrado', ru:'нерасшифровано', uk:'нерозшифроване', ar:'غير مفكوك', he:'לא פוענח', sw:'haijafafanuliwa', pl:'nieodszyfrowany' },
                 descs: {
                     en:'Script not yet readable.',
                     ja:'文字が未解読の言語。',
@@ -7882,11 +7891,12 @@
                     ar:'الكتابة غير قابلة للقراءة بعد.',
                     he:'הכתב טרם ניתן לקריאה.',
                     sw:'Maandishi bado hayaweza kusomwa.',
+                    pl:'Pismo nie jest jeszcze czytelne.'
                 },
             },
             'partly-understood': {
                 bg:'#fff0d0', fg:'#a06000',
-                labels: { en:'partly understood', ja:'部分解読', ko:'부분 해독', zh:'部分解读', yue:'部分解讀', vi:'hiểu một phần', th:'เข้าใจบางส่วน', id:'sebagian dimengerti', hi:'आंशिक समझ', de:'teilweise verstanden', fr:'partiellement compris', it:'parzialmente compreso', es:'parcialmente entendido', es: 'parcialmente entendido', pt:'parcialmente compreendido', pt: 'parcialmente compreendido', ru:'частично понятно', uk:'частково зрозуміле', ar:'مفهوم جزئيًا', he:'מובן חלקית', sw:'inaeleweka kwa sehemu' },
+                labels: { en:'partly understood', ja:'部分解読', ko:'부분 해독', zh:'部分解读', yue:'部分解讀', vi:'hiểu một phần', th:'เข้าใจบางส่วน', id:'sebagian dimengerti', hi:'आंशिक समझ', de:'teilweise verstanden', fr:'partiellement compris', it:'parzialmente compreso', es:'parcialmente entendido', es: 'parcialmente entendido', pt:'parcialmente compreendido', pt: 'parcialmente compreendido', ru:'частично понятно', uk:'частково зрозуміле', ar:'مفهوم جزئيًا', he:'מובן חלקית', sw:'inaeleweka kwa sehemu', pl:'częściowo rozumiany' },
                 descs: {
                     en:'Script readable but lexicon/grammar incomplete; many cells uncertain.',
                     ja:'文字は読めるが語彙・文法は未完成。多くのセルが暫定的。',
@@ -7907,11 +7917,12 @@
                     ar:'الكتابة مقروءة لكن المعجم/النحو غير مكتملين؛ كثير من الخلايا غير مؤكدة.',
                     he:'הכתב קריא אך אוצר המילים/הדקדוק חלקיים; תאים רבים אינם ודאיים.',
                     sw:'Maandishi yanaweza kusomwa lakini msamiati/sarufi haijakamilika; visehemu vingi havihakikishwi.',
+                    pl:'Pismo czytelne, ale słownictwo/gramatyka są niepełne; wiele komórek jest niepewnych.'
                 },
             },
             pedagogical: {
                 bg:'#eee0fa', fg:'#6020a0',
-                labels: { en:'pedagogical', ja:'教育用近似', ko:'교육용 근사치', zh:'教学近似', yue:'教學近似', vi:'mô phỏng giáo dục', th:'ใช้สอน', id:'pendekatan pengajaran', hi:'शैक्षिक', de:'pädagogisch', fr:'pédagogique', it:'pedagogico', es:'pedagógico', es: 'pedagógico', pt:'pedagógico', pt: 'pedagógico', ru:'учебное', uk:'педагогічне', ar:'تعليمي', he:'לימודי', sw:'kielimu' },
+                labels: { en:'pedagogical', ja:'教育用近似', ko:'교육용 근사치', zh:'教学近似', yue:'教學近似', vi:'mô phỏng giáo dục', th:'ใช้สอน', id:'pendekatan pengajaran', hi:'शैक्षिक', de:'pädagogisch', fr:'pédagogique', it:'pedagogico', es:'pedagógico', es: 'pedagógico', pt:'pedagógico', pt: 'pedagógico', ru:'учебное', uk:'педагогічне', ar:'تعليمي', he:'לימודי', sw:'kielimu', pl:'pedagogiczny' },
                 descs: {
                     en:'Teaching approximation; not actual attested historical forms.',
                     ja:'教育用の近似形であり、実際に文献で確認された歴史的形態ではない。',
@@ -7932,6 +7943,7 @@
                     ar:'تقريب تعليمي؛ ليست أشكالاً تاريخية مثبتة فعليًا.',
                     he:'קירוב לימודי; אינן צורות היסטוריות מתועדות בפועל.',
                     sw:'Ukadirio wa kufundishia; siyo aina za kihistoria zilizothibitishwa kihalisi.',
+                    pl:'Przybliżenia dla nauki; nie są to poświadczone formy historyczne.',
                 },
             },
         };
@@ -7952,11 +7964,11 @@
         // m.speakers prose if the structure is unrecognizable.
         const SC_RANGE_SEP = { ja: '〜', ko: '~', en: '–' };
         const SC_VITALITY_LBL = {
-            'extinct':                { en:'extinct',                ja:'死語',          ko:'사어',           zh:'已灭绝',     yue:'已滅絕',     vi:'đã tuyệt chủng',         th:'สูญพันธุ์',                id:'punah',                 hi:'विलुप्त',                de:'ausgestorben',     fr:'éteinte',                it:'estinta',           es:'extinta',             pt:'extinta',          ru:'мёртвый',                  uk:'мертва',                 ar:'منقرضة',           he:'נכחדה',         sw:'imepotea' },
-            'critically-endangered':  { en:'critically endangered',  ja:'極めて深刻な危機', ko:'심각한 위기',     zh:'极度濒危',   yue:'極度瀕危',   vi:'cực kỳ nguy cấp',        th:'ใกล้สูญพันธุ์อย่างยิ่ง', id:'sangat terancam punah', hi:'गंभीर रूप से संकटग्रस्त',  de:'akut bedroht',     fr:'en danger critique',     it:'in grave pericolo', es:'en peligro crítico',  pt:'criticamente ameaçada', ru:'на грани вымирания',     uk:'на межі вимирання',      ar:'مهددة بالانقراض الشديد', he:'בסכנת הכחדה חמורה', sw:'hatari kubwa sana' },
-            'severely-endangered':    { en:'severely endangered',    ja:'重大な危機',     ko:'심각한 위협',     zh:'严重濒危',   yue:'嚴重瀕危',   vi:'bị đe dọa nghiêm trọng', th:'ใกล้สูญพันธุ์รุนแรง',   id:'sangat terancam',       hi:'गंभीर रूप से संकटग्रस्त',  de:'stark bedroht',    fr:'sévèrement en danger',   it:'gravemente in pericolo', es:'severamente en peligro', pt:'gravemente ameaçada', ru:'под серьёзной угрозой', uk:'під серйозною загрозою', ar:'مهددة بشدة',       he:'בסכנה חמורה',   sw:'hatari sana' },
-            'definitely-endangered':  { en:'definitely endangered',  ja:'危機',          ko:'확실한 위협',     zh:'确定濒危',   yue:'確定瀕危',   vi:'bị đe dọa rõ ràng',      th:'ใกล้สูญพันธุ์',          id:'pasti terancam',        hi:'निश्चित रूप से संकटग्रस्त', de:'eindeutig bedroht', fr:'en danger certain',      it:'in pericolo certo', es:'definitivamente en peligro', pt:'definitivamente ameaçada', ru:'определённо под угрозой', uk:'визначено під загрозою', ar:'مهددة قطعا',       he:'בסכנה מובהקת',  sw:'hatari iliyo wazi' },
-            'vulnerable':             { en:'vulnerable',             ja:'脆弱',          ko:'취약',           zh:'易危',       yue:'易危',       vi:'dễ bị tổn thương',       th:'เปราะบาง',                id:'rentan',                hi:'सुभेद्य',                de:'gefährdet',        fr:'vulnérable',             it:'vulnerabile',       es:'vulnerable',          pt:'vulnerável',       ru:'уязвимый',                 uk:'вразлива',               ar:'هشة',              he:'פגיעה',         sw:'iliyo katika hatari' },
+            'extinct':                { en:'extinct',                ja:'死語',          ko:'사어',           zh:'已灭绝',     yue:'已滅絕',     vi:'đã tuyệt chủng',         th:'สูญพันธุ์',                id:'punah',                 hi:'विलुप्त',                de:'ausgestorben',     fr:'éteinte',                it:'estinta',           es:'extinta',             pt:'extinta',          ru:'мёртвый',                  uk:'мертва',                 ar:'منقرضة',           he:'נכחדה',         sw:'imepotea',   pl:'wymarły' },
+            'critically-endangered':  { en:'critically endangered',  ja:'極めて深刻な危機', ko:'심각한 위기',     zh:'极度濒危',   yue:'極度瀕危',   vi:'cực kỳ nguy cấp',        th:'ใกล้สูญพันธุ์อย่างยิ่ง', id:'sangat terancam punah', hi:'गंभीर रूप से संकटग्रस्त',  de:'akut bedroht',     fr:'en danger critique',     it:'in grave pericolo', es:'en peligro crítico',  pt:'criticamente ameaçada', ru:'на грани вымирания',     uk:'на межі вимирання',      ar:'مهددة بالانقراض الشديد', he:'בסכנת הכחדה חמורה', sw:'hatari kubwa sana',   pl:'krytycznie zagrożony' },
+            'severely-endangered':    { en:'severely endangered',    ja:'重大な危機',     ko:'심각한 위협',     zh:'严重濒危',   yue:'嚴重瀕危',   vi:'bị đe dọa nghiêm trọng', th:'ใกล้สูญพันธุ์รุนแรง',   id:'sangat terancam',       hi:'गंभीर रूप से संकटग्रस्त',  de:'stark bedroht',    fr:'sévèrement en danger',   it:'gravemente in pericolo', es:'severamente en peligro', pt:'gravemente ameaçada', ru:'под серьёзной угрозой', uk:'під серйозною загрозою', ar:'مهددة بشدة',       he:'בסכנה חמורה',   sw:'hatari sana',   pl:'poważnie zagrożony' },
+            'definitely-endangered':  { en:'definitely endangered',  ja:'危機',          ko:'확실한 위협',     zh:'确定濒危',   yue:'確定瀕危',   vi:'bị đe dọa rõ ràng',      th:'ใกล้สูญพันธุ์',          id:'pasti terancam',        hi:'निश्चित रूप से संकटग्रस्त', de:'eindeutig bedroht', fr:'en danger certain',      it:'in pericolo certo', es:'definitivamente en peligro', pt:'definitivamente ameaçada', ru:'определённо под угрозой', uk:'визначено під загрозою', ar:'مهددة قطعا',       he:'בסכנה מובהקת',  sw:'hatari iliyo wazi',   pl:'zdecydowanie zagrożony' },
+            'vulnerable':             { en:'vulnerable',             ja:'脆弱',          ko:'취약',           zh:'易危',       yue:'易危',       vi:'dễ bị tổn thương',       th:'เปราะบาง',                id:'rentan',                hi:'सुभेद्य',                de:'gefährdet',        fr:'vulnérable',             it:'vulnerabile',       es:'vulnerable',          pt:'vulnerável',       ru:'уязвимый',                 uk:'вразлива',               ar:'هشة',              he:'פגיעה',         sw:'iliyo katika hatari',   pl:'wrażliwy' },
         };
         function formatSpeakerNumber(n, ui) {
             if (typeof n !== 'number' || !isFinite(n)) return String(n);
@@ -7983,7 +7995,7 @@
             }
             if (n >= 1_000_000_000) return trim(n / 1_000_000_000, 2) + 'B';
             if (n >= 1_000_000)     return trim(n / 1_000_000, 2) + 'M';
-            const localeMap = { vi:'vi-VN', th:'th-TH', id:'id-ID', hi:'hi-IN', de:'de-DE', fr:'fr-FR', it:'it-IT', es:'es-ES', pt:'pt-BR', ru:'ru-RU', uk:'uk-UA', ar:'ar', he:'he-IL', sw:'sw' };
+            const localeMap = { vi:'vi-VN', th:'th-TH', id:'id-ID', hi:'hi-IN', de:'de-DE', fr:'fr-FR', it:'it-IT', es:'es-ES', pt:'pt-BR', ru:'ru-RU', uk:'uk-UA', ar:'ar', he:'he-IL', sw:'sw', pl:'pl' };
             return n.toLocaleString(localeMap[ui] || 'en-US');
         }
         function formatSpeakerCount(sc, uiLangFull) {
@@ -8016,51 +8028,51 @@
         // Compact symbol shown next to each cell value; hover tooltip carries source.
         // Audit Task 76: pronunciationType label for the IPA column. Full UI-lang coverage.
         const PRONUNCIATION_LABEL = {
-            ipa:          { en:'IPA', ja:'IPA', ko:'IPA', zh:'IPA', yue:'IPA', vi:'IPA', th:'สัทอักษรสากล', id:'IPA', hi:'IPA', de:'IPA', fr:'API', it:'IPA', es:'AFI', pt:'AFI', ru:'МФА', uk:'МФА', ar:'IPA', he:'IPA', sw:'IPA' },
-            broad:        { en:'broad transcription', ja:'広めの音写', ko:'광역 전사', zh:'宽式音写', yue:'寬式音寫', vi:'phiên âm rộng', th:'การถอดเสียงอย่างกว้าง', id:'transkripsi luas', hi:'विस्तृत प्रतिलेखन', de:'breite Transkription', fr:'transcription large', it:'trascrizione larga', es:'transcripción amplia', pt:'transcrição ampla', ru:'широкая транскрипция', uk:'широка транскрипція', ar:'نسخ صوتي عريض', he:'תעתיק רחב', sw:'unukuzi mpana' },
-            romanization: { en:'romanization', ja:'ローマ字転写', ko:'로마자 전사', zh:'罗马字转写', yue:'羅馬字轉寫', vi:'phiên âm La-tinh', th:'การถอดเป็นโรมัน', id:'romanisasi', hi:'रोमनीकरण', de:'Romanisierung', fr:'romanisation', it:'romanizzazione', es:'romanización', pt:'romanização', ru:'романизация', uk:'романізація', ar:'الكتابة بالحروف اللاتينية', he:'תעתיק לטיני', sw:'urumi' },
-            orthography:  { en:'spelling-based', ja:'綴り由来', ko:'철자 기반', zh:'拼写转写', yue:'拼寫轉寫', vi:'theo chính tả', th:'อิงอักขรวิธี', id:'berbasis ejaan', hi:'वर्तनी-आधारित', de:'rechtschreibungsbasiert', fr:'orthographique', it:'ortografica', es:'ortográfico', pt:'ortográfico', ru:'на основе орфографии', uk:'на основі правопису', ar:'مبني على الإملاء', he:'מבוסס כתיב', sw:'msingi wa tahajia' },
-            mixed:        { en:'mixed / needs review', ja:'混在/要確認', ko:'혼합/재검토 필요', zh:'混合/待修订', yue:'混合／待修訂', vi:'hỗn hợp / cần xem xét', th:'ผสม / ต้องตรวจสอบ', id:'campuran / perlu ditinjau', hi:'मिश्रित / समीक्षा आवश्यक', de:'gemischt / zu prüfen', fr:'mixte / à revoir', it:'misto / da rivedere', es:'mixto / requiere revisión', pt:'misto / precisa revisão', ru:'смешано / требует проверки', uk:'змішано / потребує перевірки', ar:'مختلط / يتطلب مراجعة', he:'מעורב / דורש סקירה', sw:'mchanganyiko / linahitaji ukaguzi' },
-            unknown:      { en:'not yet reviewed', ja:'未確認', ko:'미검토', zh:'未审核', yue:'未審核', vi:'chưa xem xét', th:'ยังไม่ตรวจสอบ', id:'belum ditinjau', hi:'समीक्षा नहीं हुई', de:'nicht geprüft', fr:'non vérifié', it:'non rivisto', es:'sin revisar', pt:'não revisado', ru:'не проверено', uk:'не перевірено', ar:'لم تُراجع', he:'לא נסקר', sw:'haijakaguliwa' },
+            ipa:          { en:'IPA', ja:'IPA', ko:'IPA', zh:'IPA', yue:'IPA', vi:'IPA', th:'สัทอักษรสากล', id:'IPA', hi:'IPA', de:'IPA', fr:'API', it:'IPA', es:'AFI', pt:'AFI', ru:'МФА', uk:'МФА', ar:'IPA', he:'IPA', sw:'IPA', pl:'IPA' },
+            broad:        { en:'broad transcription', ja:'広めの音写', ko:'광역 전사', zh:'宽式音写', yue:'寬式音寫', vi:'phiên âm rộng', th:'การถอดเสียงอย่างกว้าง', id:'transkripsi luas', hi:'विस्तृत प्रतिलेखन', de:'breite Transkription', fr:'transcription large', it:'trascrizione larga', es:'transcripción amplia', pt:'transcrição ampla', ru:'широкая транскрипция', uk:'широка транскрипція', ar:'نسخ صوتي عريض', he:'תעתיק רחב', sw:'unukuzi mpana', pl:'gwarowa transkrypcja' },
+            romanization: { en:'romanization', ja:'ローマ字転写', ko:'로마자 전사', zh:'罗马字转写', yue:'羅馬字轉寫', vi:'phiên âm La-tinh', th:'การถอดเป็นโรมัน', id:'romanisasi', hi:'रोमनीकरण', de:'Romanisierung', fr:'romanisation', it:'romanizzazione', es:'romanización', pt:'romanização', ru:'романизация', uk:'романізація', ar:'الكتابة بالحروف اللاتينية', he:'תעתיק לטיני', sw:'urumi', pl:'romanizacja' },
+            orthography:  { en:'spelling-based', ja:'綴り由来', ko:'철자 기반', zh:'拼写转写', yue:'拼寫轉寫', vi:'theo chính tả', th:'อิงอักขรวิธี', id:'berbasis ejaan', hi:'वर्तनी-आधारित', de:'rechtschreibungsbasiert', fr:'orthographique', it:'ortografica', es:'ortográfico', pt:'ortográfico', ru:'на основе орфографии', uk:'на основі правопису', ar:'مبني على الإملاء', he:'מבוסס כתיב', sw:'msingi wa tahajia', pl:'według ortografii' },
+            mixed:        { en:'mixed / needs review', ja:'混在/要確認', ko:'혼합/재검토 필요', zh:'混合/待修订', yue:'混合／待修訂', vi:'hỗn hợp / cần xem xét', th:'ผสม / ต้องตรวจสอบ', id:'campuran / perlu ditinjau', hi:'मिश्रित / समीक्षा आवश्यक', de:'gemischt / zu prüfen', fr:'mixte / à revoir', it:'misto / da rivedere', es:'mixto / requiere revisión', pt:'misto / precisa revisão', ru:'смешано / требует проверки', uk:'змішано / потребує перевірки', ar:'مختلط / يتطلب مراجعة', he:'מעורב / דורש סקירה', sw:'mchanganyiko / linahitaji ukaguzi', pl:'mieszana / wymaga weryfikacji' },
+            unknown:      { en:'not yet reviewed', ja:'未確認', ko:'미검토', zh:'未审核', yue:'未審核', vi:'chưa xem xét', th:'ยังไม่ตรวจสอบ', id:'belum ditinjau', hi:'समीक्षा नहीं हुई', de:'nicht geprüft', fr:'non vérifié', it:'non rivisto', es:'sin revisar', pt:'não revisado', ru:'не проверено', uk:'не перевірено', ar:'لم تُراجع', he:'לא נסקר', sw:'haijakaguliwa', pl:'jeszcze nie zweryfikowana' },
         };
-        const PRONUNCIATION_HEADER = { en:'Pronunciation', ja:'発音表記', ko:'발음 표기', zh:'发音标注', yue:'發音標註', vi:'Phát âm', th:'การออกเสียง', id:'Pelafalan', hi:'उच्चारण', de:'Aussprache', fr:'Prononciation', it:'Pronuncia', es:'Pronunciación', pt:'Pronúncia', ru:'Произношение', uk:'Вимова', ar:'النطق', he:'הגייה', sw:'Matamshi' };
+        const PRONUNCIATION_HEADER = { en:'Pronunciation', ja:'発音表記', ko:'발음 표기', zh:'发音标注', yue:'發音標註', vi:'Phát âm', th:'การออกเสียง', id:'Pelafalan', hi:'उच्चारण', de:'Aussprache', fr:'Prononciation', it:'Pronuncia', es:'Pronunciación', pt:'Pronúncia', ru:'Произношение', uk:'Вимова', ar:'النطق', he:'הגייה', sw:'Matamshi', pl:'Wymowa' };
         // Audit Task 84/89: surfaceType label (which kind of script is used
         // in the surface column — native script, standard orthography, etc.)
         const SURFACE_TYPE_LABEL = {
-            'native-script':         { en:'native script', ja:'現地文字', ko:'고유 문자', zh:'本族文字', yue:'本族文字', vi:'chữ bản địa', th:'อักษรพื้นเมือง', id:'aksara asli', hi:'देशीय लिपि', de:'einheimische Schrift', fr:'écriture native', it:'scrittura nativa', es:'escritura nativa', pt:'escrita nativa', ru:'родная письменность', uk:'рідне письмо', ar:'الكتابة الأصلية', he:'כתב מקורי', sw:'maandishi asilia' },
-            'standard-orthography':  { en:'standard orthography', ja:'標準正書法', ko:'표준 정서법', zh:'标准正字法', yue:'標準正字法', vi:'chính tả chuẩn', th:'อักขรวิธีมาตรฐาน', id:'ejaan standar', hi:'मानक वर्तनी', de:'Standardrechtschreibung', fr:'orthographe standard', it:'ortografia standard', es:'ortografía estándar', pt:'ortografia padrão', ru:'стандартная орфография', uk:'стандартний правопис', ar:'الإملاء القياسي', he:'כתיב סטנדרטי', sw:'tahajia sanifu' },
-            'romanization':          { en:'romanization', ja:'ローマ字転写', ko:'로마자 전사', zh:'罗马字', yue:'羅馬字', vi:'phiên âm La-tinh', th:'การถอดเป็นโรมัน', id:'romanisasi', hi:'रोमनीकरण', de:'Romanisierung', fr:'romanisation', it:'romanizzazione', es:'romanización', pt:'romanização', ru:'романизация', uk:'романізація', ar:'الكتابة بالحروف اللاتينية', he:'תעתיק לטיני', sw:'urumi' },
-            'phonetic':              { en:'phonetic transcription', ja:'音声転写', ko:'음성 전사', zh:'音标转写', yue:'音標轉寫', vi:'phiên âm ngữ âm', th:'การถอดเสียงเชิงสัทศาสตร์', id:'transkripsi fonetik', hi:'ध्वन्यात्मक प्रतिलेखन', de:'phonetische Transkription', fr:'transcription phonétique', it:'trascrizione fonetica', es:'transcripción fonética', pt:'transcrição fonética', ru:'фонетическая транскрипция', uk:'фонетична транскрипція', ar:'النسخ الصوتي', he:'תעתיק פונטי', sw:'unukuzi wa kifonetiki' },
-            'mixed':                 { en:'mixed / needs review', ja:'混在/要確認', ko:'혼합/재검토 필요', zh:'混合/待修订', yue:'混合／待修訂', vi:'hỗn hợp / cần xem xét', th:'ผสม / ต้องตรวจสอบ', id:'campuran / perlu ditinjau', hi:'मिश्रित / समीक्षा आवश्यक', de:'gemischt / zu prüfen', fr:'mixte / à revoir', it:'misto / da rivedere', es:'mixto / requiere revisión', pt:'misto / precisa revisão', ru:'смешано / требует проверки', uk:'змішано / потребує перевірки', ar:'مختلط / يتطلب مراجعة', he:'מעורב / דורש סקירה', sw:'mchanganyiko / linahitaji ukaguzi' },
-            'unknown':               { en:'not yet reviewed', ja:'未確認', ko:'미검토', zh:'未审核', yue:'未審核', vi:'chưa xem xét', th:'ยังไม่ตรวจสอบ', id:'belum ditinjau', hi:'समीक्षा नहीं हुई', de:'nicht geprüft', fr:'non vérifié', it:'non rivisto', es:'sin revisar', pt:'não revisado', ru:'не проверено', uk:'не перевірено', ar:'لم تُراجع', he:'לא נסקר', sw:'haijakaguliwa' },
+            'native-script':         { en:'native script', ja:'現地文字', ko:'고유 문자', zh:'本族文字', yue:'本族文字', vi:'chữ bản địa', th:'อักษรพื้นเมือง', id:'aksara asli', hi:'देशीय लिपि', de:'einheimische Schrift', fr:'écriture native', it:'scrittura nativa', es:'escritura nativa', pt:'escrita nativa', ru:'родная письменность', uk:'рідне письмо', ar:'الكتابة الأصلية', he:'כתב מקורי', sw:'maandishi asilia', pl:'pismo ojczyste' },
+            'standard-orthography':  { en:'standard orthography', ja:'標準正書法', ko:'표준 정서법', zh:'标准正字法', yue:'標準正字法', vi:'chính tả chuẩn', th:'อักขรวิธีมาตรฐาน', id:'ejaan standar', hi:'मानक वर्तनी', de:'Standardrechtschreibung', fr:'orthographe standard', it:'ortografia standard', es:'ortografía estándar', pt:'ortografia padrão', ru:'стандартная орфография', uk:'стандартний правопис', ar:'الإملاء القياسي', he:'כתיב סטנדרטי', sw:'tahajia sanifu', pl:'standardowa ortografia' },
+            'romanization':          { en:'romanization', ja:'ローマ字転写', ko:'로마자 전사', zh:'罗马字', yue:'羅馬字', vi:'phiên âm La-tinh', th:'การถอดเป็นโรมัน', id:'romanisasi', hi:'रोमनीकरण', de:'Romanisierung', fr:'romanisation', it:'romanizzazione', es:'romanización', pt:'romanização', ru:'романизация', uk:'романізація', ar:'الكتابة بالحروف اللاتينية', he:'תעתיק לטיני', sw:'urumi', pl:'romanizacja' },
+            'phonetic':              { en:'phonetic transcription', ja:'音声転写', ko:'음성 전사', zh:'音标转写', yue:'音標轉寫', vi:'phiên âm ngữ âm', th:'การถอดเสียงเชิงสัทศาสตร์', id:'transkripsi fonetik', hi:'ध्वन्यात्मक प्रतिलेखन', de:'phonetische Transkription', fr:'transcription phonétique', it:'trascrizione fonetica', es:'transcripción fonética', pt:'transcrição fonética', ru:'фонетическая транскрипция', uk:'фонетична транскрипція', ar:'النسخ الصوتي', he:'תעתיק פונטי', sw:'unukuzi wa kifonetiki', pl:'fonetyczna transkrypcja' },
+            'mixed':                 { en:'mixed / needs review', ja:'混在/要確認', ko:'혼합/재검토 필요', zh:'混合/待修订', yue:'混合／待修訂', vi:'hỗn hợp / cần xem xét', th:'ผสม / ต้องตรวจสอบ', id:'campuran / perlu ditinjau', hi:'मिश्रित / समीक्षा आवश्यक', de:'gemischt / zu prüfen', fr:'mixte / à revoir', it:'misto / da rivedere', es:'mixto / requiere revisión', pt:'misto / precisa revisão', ru:'смешано / требует проверки', uk:'змішано / потребує перевірки', ar:'مختلط / يتطلب مراجعة', he:'מעורב / דורש סקירה', sw:'mchanganyiko / linahitaji ukaguzi', pl:'mieszany / wymaga weryfikacji' },
+            'unknown':               { en:'not yet reviewed', ja:'未確認', ko:'미검토', zh:'未审核', yue:'未審核', vi:'chưa xem xét', th:'ยังไม่ตรวจสอบ', id:'belum ditinjau', hi:'समीक्षा नहीं हुई', de:'nicht geprüft', fr:'non vérifié', it:'non rivisto', es:'sin revisar', pt:'não revisado', ru:'не проверено', uk:'не перевірено', ar:'لم تُراجع', he:'לא נסקר', sw:'haijakaguliwa', pl:'jeszcze nie zweryfikowany },
         };
-        const SURFACE_TYPE_HEADER = { en:'Surface', ja:'表記体系', ko:'표기 체계', zh:'表记体系', yue:'表記體系', vi:'Hệ chữ', th:'ระบบการเขียน', id:'Sistem Tulisan', hi:'लेखन प्रणाली', de:'Schriftform', fr:'Forme écrite', it:'Forma scritta', es:'Forma escrita', pt:'Forma escrita', ru:'Запись', uk:'Запис', ar:'النظام الكتابي', he:'מערכת כתב', sw:'Mfumo wa Kuandika' };
+        const SURFACE_TYPE_HEADER = { en:'Surface', ja:'表記体系', ko:'표기 체계', zh:'表记体系', yue:'表記體系', vi:'Hệ chữ', th:'ระบบการเขียน', id:'Sistem Tulisan', hi:'लेखन प्रणाली', de:'Schriftform', fr:'Forme écrite', it:'Forma scritta', es:'Forma escrita', pt:'Forma escrita', ru:'Запись', uk:'Запис', ar:'النظام الكتابي', he:'מערכת כתב', sw:'Mfumo wa Kuandika', pl:'Zapis' };
 
         // Audit Task 79: coverage flag for regional variant rows
         const COVERAGE_LABEL = {
-            full:                   { en:'fully reviewed', ja:'全体検証済み', ko:'전면 검증', zh:'全面审核', yue:'全面審核', vi:'đã xem xét đầy đủ', th:'ตรวจสอบครบถ้วน', id:'sepenuhnya ditinjau', hi:'पूर्णतः समीक्षित', de:'vollständig geprüft', fr:'entièrement vérifié', it:'interamente rivisto', es:'totalmente revisado', pt:'totalmente revisado', ru:'полностью проверено', uk:'повністю перевірено', ar:'مراجع بالكامل', he:'נסקר במלואו', sw:'imekaguliwa kikamilifu' },
-            partial:                { en:'partial', ja:'部分的', ko:'부분적', zh:'部分覆盖', yue:'部分覆蓋', vi:'một phần', th:'บางส่วน', id:'sebagian', hi:'आंशिक', de:'teilweise', fr:'partiel', it:'parziale', es:'parcial', pt:'parcial', ru:'частично', uk:'частково', ar:'جزئي', he:'חלקי', sw:'sehemu' },
-            'accent-only':          { en:'accent/pronunciation only', ja:'アクセント・発音のみ', ko:'발음·억양만', zh:'仅口音/发音', yue:'只口音／發音', vi:'chỉ giọng/phát âm', th:'เฉพาะสำเนียง/การออกเสียง', id:'hanya aksen/pengucapan', hi:'केवल उच्चारण/लहजा', de:'nur Akzent/Aussprache', fr:'accent/prononciation uniquement', it:'solo accento/pronuncia', es:'solo acento/pronunciación', pt:'apenas sotaque/pronúncia', ru:'только акцент/произношение', uk:'лише акцент/вимова', ar:'اللهجة/النطق فقط', he:'מבטא/הגייה בלבד', sw:'lafudhi/matamshi tu' },
-            'base-copy-with-notes': { en:'mostly inherited from {base}', ja:'主に{base}から継承', ko:'대부분 {base}에서 상속', zh:'主要继承自{base}', yue:'主要繼承自{base}', vi:'chủ yếu kế thừa từ {base}', th:'ส่วนใหญ่สืบทอดจาก {base}', id:'sebagian besar diwarisi dari {base}', hi:'मुख्यतः {base} से विरासत', de:'meist von {base} übernommen', fr:'principalement hérité de {base}', it:'in gran parte ereditato da {base}', es:'mayormente heredado de {base}', pt:'principalmente herdado de {base}', ru:'в основном унаследовано от {base}', uk:'переважно успадковано від {base}', ar:'موروث في الغالب من {base}', he:'נורש בעיקר מ-{base}', sw:'kwa kiasi kikubwa kutoka {base}' },
+            full:                   { en:'fully reviewed', ja:'全体検証済み', ko:'전면 검증', zh:'全面审核', yue:'全面審核', vi:'đã xem xét đầy đủ', th:'ตรวจสอบครบถ้วน', id:'sepenuhnya ditinjau', hi:'पूर्णतः समीक्षित', de:'vollständig geprüft', fr:'entièrement vérifié', it:'interamente rivisto', es:'totalmente revisado', pt:'totalmente revisado', ru:'полностью проверено', uk:'повністю перевірено', ar:'مراجع بالكامل', he:'נסקר במלואו', sw:'imekaguliwa kikamilifu', pl:'w pełni zweryfikowany' },
+            partial:                { en:'partial', ja:'部分的', ko:'부분적', zh:'部分覆盖', yue:'部分覆蓋', vi:'một phần', th:'บางส่วน', id:'sebagian', hi:'आंशिक', de:'teilweise', fr:'partiel', it:'parziale', es:'parcial', pt:'parcial', ru:'частично', uk:'частково', ar:'جزئي', he:'חלקי', sw:'sehemu', pl:'częściowy\ },
+            'accent-only':          { en:'accent/pronunciation only', ja:'アクセント・発音のみ', ko:'발음·억양만', zh:'仅口音/发音', yue:'只口音／發音', vi:'chỉ giọng/phát âm', th:'เฉพาะสำเนียง/การออกเสียง', id:'hanya aksen/pengucapan', hi:'केवल उच्चारण/लहजा', de:'nur Akzent/Aussprache', fr:'accent/prononciation uniquement', it:'solo accento/pronuncia', es:'solo acento/pronunciación', pt:'apenas sotaque/pronúncia', ru:'только акцент/произношение', uk:'лише акцент/вимова', ar:'اللهجة/النطق فقط', he:'מבטא/הגייה בלבד', sw:'lafudhi/matamshi tu', pl:'tylko akcent/wymowa' },
+            'base-copy-with-notes': { en:'mostly inherited from {base}', ja:'主に{base}から継承', ko:'대부분 {base}에서 상속', zh:'主要继承自{base}', yue:'主要繼承自{base}', vi:'chủ yếu kế thừa từ {base}', th:'ส่วนใหญ่สืบทอดจาก {base}', id:'sebagian besar diwarisi dari {base}', hi:'मुख्यतः {base} से विरासत', de:'meist von {base} übernommen', fr:'principalement hérité de {base}', it:'in gran parte ereditato da {base}', es:'mayormente heredado de {base}', pt:'principalmente herdado de {base}', ru:'в основном унаследовано от {base}', uk:'переважно успадковано від {base}', ar:'موروث في الغالب من {base}', he:'נורש בעיקר מ-{base}', sw:'kwa kiasi kikubwa kutoka {base}', pl:'głównie odziedziczone z {base}' },
         };
-        const COVERAGE_HEADER = { en:'Coverage', ja:'網羅度', ko:'커버리지', zh:'覆盖度', yue:'覆蓋度', vi:'Mức độ', th:'การครอบคลุม', id:'Cakupan', hi:'कवरेज', de:'Abdeckung', fr:'Couverture', it:'Copertura', es:'Cobertura', pt:'Cobertura', ru:'Охват', uk:'Охоплення', ar:'التغطية', he:'כיסוי', sw:'Ufunikaji' };
+        const COVERAGE_HEADER = { en:'Coverage', ja:'網羅度', ko:'커버리지', zh:'覆盖度', yue:'覆蓋度', vi:'Mức độ', th:'การครอบคลุม', id:'Cakupan', hi:'कवरेज', de:'Abdeckung', fr:'Couverture', it:'Copertura', es:'Cobertura', pt:'Cobertura', ru:'Охват', uk:'Охоплення', ar:'التغطية', he:'כיסוי', sw:'Ufunikaji', pl:'Zasięg' };
         // Audit Task 108: review status (separate from dataStatus)
         const REVIEW_STATUS_LABEL = {
-            'unreviewed':      { en:'not reviewed', ja:'未レビュー', ko:'미검토', zh:'未审核', yue:'未審核', vi:'chưa xem xét', th:'ยังไม่ตรวจสอบ', id:'belum ditinjau', hi:'समीक्षा नहीं हुई', de:'nicht geprüft', fr:'non vérifié', it:'non rivisto', es:'sin revisar', pt:'não revisado', ru:'не проверено', uk:'не перевірено', ar:'لم تُراجع', he:'לא נסקר', sw:'haijakaguliwa' },
-            'machine-seeded':  { en:'machine-seeded', ja:'機械生成初期値', ko:'기계 생성 초기', zh:'机器初始值', yue:'機器初始值', vi:'tạo bằng máy', th:'สร้างโดยเครื่อง', id:'awal dari mesin', hi:'मशीन-बीजित', de:'maschinen-initiiert', fr:'généré par machine', it:'iniziato da macchina', es:'sembrado por máquina', pt:'semeado por máquina', ru:'машинная инициализация', uk:'машинна ініціалізація', ar:'مُنشأ بالآلة', he:'נוצר במכונה', sw:'iliyowekwa na mashine' },
-            'human-reviewed':  { en:'human-reviewed', ja:'人手レビュー済', ko:'수동 검토', zh:'人工审核', yue:'人手審核', vi:'đã được xem xét', th:'ตรวจสอบโดยมนุษย์', id:'ditinjau manusia', hi:'मानव-समीक्षित', de:'manuell geprüft', fr:'vérifié par humain', it:'rivisto a mano', es:'revisado por humanos', pt:'revisado por humanos', ru:'человек проверил', uk:'переглянуто людиною', ar:'مراجعة بشرية', he:'נסקר ידנית', sw:'imekaguliwa na binadamu' },
-            'source-checked':  { en:'source-checked', ja:'出典確認済', ko:'출처 확인', zh:'已核对来源', yue:'已核對來源', vi:'đã đối chiếu nguồn', th:'ตรวจสอบแหล่งข้อมูล', id:'diperiksa sumber', hi:'स्रोत-सत्यापित', de:'quellengeprüft', fr:'source vérifiée', it:'fonte verificata', es:'fuente verificada', pt:'fonte verificada', ru:'проверено по источнику', uk:'перевірено за джерелом', ar:'تحقق من المصدر', he:'אומת מקור', sw:'chanzo kimethibitishwa' },
-            'needs-rebuild':   { en:'needs rebuild', ja:'再構築要', ko:'재구축 필요', zh:'需重建', yue:'需重建', vi:'cần xây lại', th:'ต้องสร้างใหม่', id:'perlu dibangun ulang', hi:'पुनर्निर्माण आवश्यक', de:'Neuaufbau nötig', fr:'à reconstruire', it:'da ricostruire', es:'requiere reconstrucción', pt:'requer reconstrução', ru:'требует пересборки', uk:'потребує перезбірки', ar:'بحاجة إلى إعادة بناء', he:'דרוש בנייה מחדש', sw:'inahitaji kujengwa upya' },
+            'unreviewed':      { en:'not reviewed', ja:'未レビュー', ko:'미검토', zh:'未审核', yue:'未審核', vi:'chưa xem xét', th:'ยังไม่ตรวจสอบ', id:'belum ditinjau', hi:'समीक्षा नहीं हुई', de:'nicht geprüft', fr:'non vérifié', it:'non rivisto', es:'sin revisar', pt:'não revisado', ru:'не проверено', uk:'не перевірено', ar:'لم تُراجع', he:'לא נסקר', sw:'haijakaguliwa', pl:'nie zweryfikowano' },
+            'machine-seeded':  { en:'machine-seeded', ja:'機械生成初期値', ko:'기계 생성 초기', zh:'机器初始值', yue:'機器初始值', vi:'tạo bằng máy', th:'สร้างโดยเครื่อง', id:'awal dari mesin', hi:'मशीन-बीजित', de:'maschinen-initiiert', fr:'généré par machine', it:'iniziato da macchina', es:'sembrado por máquina', pt:'semeado por máquina', ru:'машинная инициализация', uk:'машинна ініціалізація', ar:'مُنشأ بالآلة', he:'נוצר במכונה', sw:'iliyowekwa na mashine', pl:'wygenerowane przez maszynę' },
+            'human-reviewed':  { en:'human-reviewed', ja:'人手レビュー済', ko:'수동 검토', zh:'人工审核', yue:'人手審核', vi:'đã được xem xét', th:'ตรวจสอบโดยมนุษย์', id:'ditinjau manusia', hi:'मानव-समीक्षित', de:'manuell geprüft', fr:'vérifié par humain', it:'rivisto a mano', es:'revisado por humanos', pt:'revisado por humanos', ru:'человек проверил', uk:'переглянуто людиною', ar:'مراجعة بشرية', he:'נסקר ידנית', sw:'imekaguliwa na binadamu', pl:'ocenione przez człowieka' },
+            'source-checked':  { en:'source-checked', ja:'出典確認済', ko:'출처 확인', zh:'已核对来源', yue:'已核對來源', vi:'đã đối chiếu nguồn', th:'ตรวจสอบแหล่งข้อมูล', id:'diperiksa sumber', hi:'स्रोत-सत्यापित', de:'quellengeprüft', fr:'source vérifiée', it:'fonte verificata', es:'fuente verificada', pt:'fonte verificada', ru:'проверено по источнику', uk:'перевірено за джерелом', ar:'تحقق من المصدر', he:'אומת מקור', sw:'chanzo kimethibitishwa', pl:'źródło sprawdzone' },
+            'needs-rebuild':   { en:'needs rebuild', ja:'再構築要', ko:'재구축 필요', zh:'需重建', yue:'需重建', vi:'cần xây lại', th:'ต้องสร้างใหม่', id:'perlu dibangun ulang', hi:'पुनर्निर्माण आवश्यक', de:'Neuaufbau nötig', fr:'à reconstruire', it:'da ricostruire', es:'requiere reconstrucción', pt:'requer reconstrução', ru:'требует пересборки', uk:'потребує перезбірки', ar:'بحاجة إلى إعادة بناء', he:'דרוש בנייה מחדש', sw:'inahitaji kujengwa upya', pl:'wymaga przebudowy' },
         };
-        const REVIEW_STATUS_HEADER = { en:'Review', ja:'レビュー状況', ko:'검토 상태', zh:'审核状态', yue:'審核狀態', vi:'Trạng thái xem xét', th:'สถานะการตรวจสอบ', id:'Status Tinjauan', hi:'समीक्षा स्थिति', de:'Prüfung', fr:'Vérification', it:'Revisione', es:'Revisión', pt:'Revisão', ru:'Проверка', uk:'Перевірка', ar:'المراجعة', he:'סקירה', sw:'Ukaguzi' };
+        const REVIEW_STATUS_HEADER = { en:'Review', ja:'レビュー状況', ko:'검토 상태', zh:'审核状态', yue:'審核狀態', vi:'Trạng thái xem xét', th:'สถานะการตรวจสอบ', id:'Status Tinjauan', hi:'समीक्षा स्थिति', de:'Prüfung', fr:'Vérification', it:'Revisione', es:'Revisión', pt:'Revisão', ru:'Проверка', uk:'Перевірка', ar:'المراجعة', he:'סקירה', sw:'Ukaguzi', pl:'Weryfikacja' };
         // Audit Task 99: locationBasis label tells users that the marker is
         // a representative point, not a speaker-distribution map.
         const LOCATION_BASIS_LABEL = {
-            'capital':         { en:'capital city', ja:'首都', ko:'수도', zh:'首都', yue:'首都', vi:'thủ đô', th:'เมืองหลวง', id:'ibu kota', hi:'राजधानी', de:'Hauptstadt', fr:'capitale', it:'capitale', es:'capital', pt:'capital', ru:'столица', uk:'столиця', ar:'العاصمة', he:'בירה', sw:'mji mkuu' },
-            'prestige-center': { en:'prestige center', ja:'威信地', ko:'위신 중심', zh:'威望中心', yue:'威望中心', vi:'trung tâm danh tiếng', th:'ศูนย์กลางที่มีเกียรติ', id:'pusat prestise', hi:'प्रतिष्ठा केंद्र', de:'Prestigezentrum', fr:'centre de prestige', it:'centro di prestigio', es:'centro de prestigio', pt:'centro de prestígio', ru:'престижный центр', uk:'престижний центр', ar:'مركز هيبة', he:'מרכז יוקרה', sw:'kituo cha hadhi' },
-            'historical-site': { en:'historical site', ja:'歴史的所在地', ko:'역사적 장소', zh:'历史遗迹', yue:'歷史遺跡', vi:'di tích lịch sử', th:'แหล่งประวัติศาสตร์', id:'situs historis', hi:'ऐतिहासिक स्थल', de:'historischer Ort', fr:'site historique', it:'sito storico', es:'sitio histórico', pt:'sítio histórico', ru:'историческое место', uk:'історичне місце', ar:'موقع تاريخي', he:'אתר היסטורי', sw:'eneo la kihistoria' },
-            'largest-city':    { en:'largest-speaker city', ja:'最大話者数都市', ko:'최대 화자 도시', zh:'最大使用者城市', yue:'最大使用者城市', vi:'thành phố nhiều người nói nhất', th:'เมืองผู้พูดมากที่สุด', id:'kota dengan penutur terbanyak', hi:'सबसे अधिक वक्ता शहर', de:'Stadt mit meisten Sprechern', fr:'ville avec plus de locuteurs', it:'città con più parlanti', es:'ciudad con más hablantes', pt:'cidade com mais falantes', ru:'город с наибольшим числом носителей', uk:'місто з найбільшою кількістю мовців', ar:'مدينة بأكبر عدد متحدثين', he:'עיר הדוברים הגדולה ביותר', sw:'jiji lenye wazungumzaji wengi zaidi' },
-            'approx-region':   { en:'approximate region', ja:'概略地域', ko:'대략 지역', zh:'大致区域', yue:'大致區域', vi:'vùng khoảng chừng', th:'ภูมิภาคโดยประมาณ', id:'wilayah perkiraan', hi:'अनुमानित क्षेत्र', de:'ungefähre Region', fr:'région approximative', it:'regione approssimativa', es:'región aproximada', pt:'região aproximada', ru:'приблизительный регион', uk:'приблизний регіон', ar:'منطقة تقريبية', he:'אזור משוער', sw:'eneo la makadirio' },
+            'capital':         { en:'capital city', ja:'首都', ko:'수도', zh:'首都', yue:'首都', vi:'thủ đô', th:'เมืองหลวง', id:'ibu kota', hi:'राजधानी', de:'Hauptstadt', fr:'capitale', it:'capitale', es:'capital', pt:'capital', ru:'столица', uk:'столиця', ar:'العاصمة', he:'בירה', sw:'mji mkuu', pl:'stolica' },
+            'prestige-center': { en:'prestige center', ja:'威信地', ko:'위신 중심', zh:'威望中心', yue:'威望中心', vi:'trung tâm danh tiếng', th:'ศูนย์กลางที่มีเกียรติ', id:'pusat prestise', hi:'प्रतिष्ठा केंद्र', de:'Prestigezentrum', fr:'centre de prestige', it:'centro di prestigio', es:'centro de prestigio', pt:'centro de prestígio', ru:'престижный центр', uk:'престижний центр', ar:'مركز هيبة', he:'מרכז יוקרה', sw:'kituo cha hadhi', pl:'prestiżowe centrum' },
+            'historical-site': { en:'historical site', ja:'歴史的所在地', ko:'역사적 장소', zh:'历史遗迹', yue:'歷史遺跡', vi:'di tích lịch sử', th:'แหล่งประวัติศาสตร์', id:'situs historis', hi:'ऐतिहासिक स्थल', de:'historischer Ort', fr:'site historique', it:'sito storico', es:'sitio histórico', pt:'sítio histórico', ru:'историческое место', uk:'історичне місце', ar:'موقع تاريخي', he:'אתר היסטורי', sw:'eneo la kihistoria', pl:'historyczne miejsce' },
+            'largest-city':    { en:'largest-speaker city', ja:'最大話者数都市', ko:'최대 화자 도시', zh:'最大使用者城市', yue:'最大使用者城市', vi:'thành phố nhiều người nói nhất', th:'เมืองผู้พูดมากที่สุด', id:'kota dengan penutur terbanyak', hi:'सबसे अधिक वक्ता शहर', de:'Stadt mit meisten Sprechern', fr:'ville avec plus de locuteurs', it:'città con più parlanti', es:'ciudad con más hablantes', pt:'cidade com mais falantes', ru:'город с наибольшим числом носителей', uk:'місто з найбільшою кількістю мовців', ar:'مدينة بأكبر عدد متحدثين', he:'עיר הדוברים הגדולה ביותר', sw:'jiji lenye wazungumzaji wengi zaidi', pl:'miejsce z największą ludnością mówiących' },
+            'approx-region':   { en:'approximate region', ja:'概略地域', ko:'대략 지역', zh:'大致区域', yue:'大致區域', vi:'vùng khoảng chừng', th:'ภูมิภาคโดยประมาณ', id:'wilayah perkiraan', hi:'अनुमानित क्षेत्र', de:'ungefähre Region', fr:'région approximative', it:'regione approssimativa', es:'región aproximada', pt:'região aproximada', ru:'приблизительный регион', uk:'приблизний регіон', ar:'منطقة تقريبية', he:'אזור משוער', sw:'eneo la makadirio', pl:'przybliżony region' },
         };
         const LOCATION_BASIS_HEADER = { en:'Map point', ja:'マップ位置', ko:'지도 위치', zh:'地图标点', yue:'地圖標點', vi:'Vị trí bản đồ', th:'จุดบนแผนที่', id:'Titik Peta', hi:'मानचित्र बिंदु', de:'Kartenpunkt', fr:'Point de carte', it:'Punto sulla mappa', es:'Punto del mapa', pt:'Ponto do mapa', ru:'Точка на карте', uk:'Точка на мапі', ar:'نقطة الخريطة', he:'נקודה במפה', sw:'Nukta ya Ramani' };
 
@@ -8069,10 +8081,10 @@
         // dataStatus already covers those. Constructed / pidgin-creole /
         // pedagogical-stage / reconstructed-proto do get a small badge.
         const LANGUAGE_KIND_BADGE = {
-            'constructed':         { bg:'#7a3a8c', fg:'#fff', en:'constructed', ja:'人工言語', ko:'인공어', zh:'人工语言', yue:'人工語言', vi:'ngôn ngữ nhân tạo', th:'ภาษาประดิษฐ์', id:'bahasa buatan', hi:'निर्मित भाषा', de:'Plansprache', fr:'langue construite', it:'lingua costruita', es:'lengua construida', pt:'língua construída', ru:'искусственный язык', uk:'штучна мова', ar:'لغة مُنشأة', he:'שפה מובנית', sw:'lugha iliyobuniwa' },
-            'pidgin-creole':       { bg:'#0d6e6b', fg:'#fff', en:'pidgin / creole', ja:'ピジン・クレオール', ko:'피진/크리올', zh:'皮钦语/克里奥尔语', yue:'皮欽語／克里奧爾語', vi:'pidgin / creole', th:'พิดจิน / ครีโอล', id:'pidgin / kreol', hi:'पिजिन / क्रियोल', de:'Pidgin / Kreol', fr:'pidgin / créole', it:'pidgin / creolo', es:'pidgin / criollo', pt:'pidgin / crioulo', ru:'пиджин / креол', uk:'піджин / креол', ar:'بدجن / كريول', he:'פידג\'ין / קריאולית', sw:'pijini / krioli' },
-            'pedagogical-stage':   { bg:'#995500', fg:'#fff', en:'pedagogical stage', ja:'教材用前段階', ko:'교재용 단계', zh:'教学用阶段', yue:'教學用階段', vi:'giai đoạn giáo dục', th:'ระยะเพื่อการสอน', id:'tahap pedagogis', hi:'शैक्षिक चरण', de:'pädagogische Stufe', fr:'étape pédagogique', it:'fase pedagogica', es:'etapa pedagógica', pt:'etapa pedagógica', ru:'учебная стадия', uk:'навчальний етап', ar:'مرحلة تعليمية', he:'שלב לימודי', sw:'hatua ya kielimu' },
-            'reconstructed-proto': { bg:'#404060', fg:'#fff', en:'reconstructed proto', ja:'再構祖語', ko:'재구 조어', zh:'构拟原始语', yue:'構擬原始語', vi:'tổ ngữ tái dựng', th:'ภาษาดั้งเดิมที่สร้างใหม่', id:'proto-bahasa rekonstruksi', hi:'पुनर्निर्मित प्रोटो', de:'rekonstruierte Ursprache', fr:'proto-langue reconstituée', it:'protolingua ricostruita', es:'protolengua reconstruida', pt:'protolíngua reconstruída', ru:'реконструированный праязык', uk:'реконструйована прамова', ar:'لغة بدئية مُعاد بناؤها', he:'פרוטו-שפה משוחזרת', sw:'protolugha iliyorejeshwa' },
+            'constructed':         { bg:'#7a3a8c', fg:'#fff', en:'constructed', ja:'人工言語', ko:'인공어', zh:'人工语言', yue:'人工語言', vi:'ngôn ngữ nhân tạo', th:'ภาษาประดิษฐ์', id:'bahasa buatan', hi:'निर्मित भाषा', de:'Plansprache', fr:'langue construite', it:'lingua costruita', es:'lengua construida', pt:'língua construída', ru:'искусственный язык', uk:'штучна мова', ar:'لغة مُنشأة', he:'שפה מובנית', sw:'lugha iliyobuniwa', pl:'język sztuczny' },
+            'pidgin-creole':       { bg:'#0d6e6b', fg:'#fff', en:'pidgin / creole', ja:'ピジン・クレオール', ko:'피진/크리올', zh:'皮钦语/克里奥尔语', yue:'皮欽語／克里奧爾語', vi:'pidgin / creole', th:'พิดจิน / ครีโอล', id:'pidgin / kreol', hi:'पिजिन / क्रियोल', de:'Pidgin / Kreol', fr:'pidgin / créole', it:'pidgin / creolo', es:'pidgin / criollo', pt:'pidgin / crioulo', ru:'пиджин / креол', uk:'піджин / креол', ar:'بدجن / كريول', he:'פידג\'ין / קריאולית', sw:'pijini / krioli', pl:'język pidżynowy/kreolski' },
+            'pedagogical-stage':   { bg:'#995500', fg:'#fff', en:'pedagogical stage', ja:'教材用前段階', ko:'교재용 단계', zh:'教学用阶段', yue:'教學用階段', vi:'giai đoạn giáo dục', th:'ระยะเพื่อการสอน', id:'tahap pedagogis', hi:'शैक्षिक चरण', de:'pädagogische Stufe', fr:'étape pédagogique', it:'fase pedagogica', es:'etapa pedagógica', pt:'etapa pedagógica', ru:'учебная стадия', uk:'навчальний етап', ar:'مرحلة تعليمية', he:'שלב לימודי', sw:'hatua ya kielimu', pl:'etap pedagogiczny' },
+            'reconstructed-proto': { bg:'#404060', fg:'#fff', en:'reconstructed proto', ja:'再構祖語', ko:'재구 조어', zh:'构拟原始语', yue:'構擬原始語', vi:'tổ ngữ tái dựng', th:'ภาษาดั้งเดิมที่สร้างใหม่', id:'proto-bahasa rekonstruksi', hi:'पुनर्निर्मित प्रोटो', de:'rekonstruierte Ursprache', fr:'proto-langue reconstituée', it:'protolingua ricostruita', es:'protolengua reconstruida', pt:'protolíngua reconstruída', ru:'реконструированный праязык', uk:'реконструйована прамова', ar:'لغة بدئية مُعاد بناؤها', he:'פרוטו-שפה משוחזרת', sw:'protolugha iliyorejeshwa', pl:'rekonstruowany prajęzyk' },
         };
 
         // Audit Task 100: localize "— (unattested)" cell label
@@ -8084,7 +8096,7 @@
             es: 'no atestiguado',
             pt: 'não atestado', pt: 'não atestado',
             ru: 'не засвидетельствовано', uk: 'не засвідчено',
-            ar: 'غير مُثَبَّت', he: 'לא מתועد', sw: 'haijathibitishwa',
+            ar: 'غير مُثَبَّت', he: 'לא מתועد', sw: 'haijathibitishwa', pl: 'nie poświadczono',
         };
 
         // Audit Task 121: visible fallback label when description is shown
@@ -8100,7 +8112,7 @@
             pt: 'Texto provisório em inglês', pt: 'Texto provisório em inglês',
             ru: 'Описание временно на английском', uk: 'Опис тимчасово англійською',
             ar: 'الوصف معروض بالإنجليزية مؤقتًا', he: 'התיאור מוצג כעת באנגלית',
-            sw: 'Maelezo bado kwa Kiingereza',
+            sw: 'Maelezo bado kwa Kiingereza', pl: 'Tymczasowy tekst po angielsku'
         };
 
         // Audit Task 132: evidence marker labels localized en/ja/ko/zh/de/fr/es.
@@ -8108,21 +8120,21 @@
         // ja and added ko/zh/de/fr/es so non-English UI users see localized labels.
         const EVIDENCE_MARKER = {
             direct:        { sym:'✓', color:'#1a7a1a', labels: {
-                en:'directly attested', ja:'直接確認', ko:'직접 확인됨', zh:'直接证实', yue:'直接證實', vi:'được chứng tích trực tiếp', th:'มีหลักฐานตรง', id:'terdokumentasi langsung', hi:'प्रत्यक्ष रूप से प्रमाणित', de:'direkt belegt', fr:'attesté directement', it:'attestato direttamente', es:'atestiguado directamente', pt:'atestado diretamente', ru:'прямо засвидетельствовано', uk:'прямо засвідчено', ar:'مُؤكَّد مباشرةً', he:'מתועד ישירות', sw:'imethibitishwa moja kwa moja' } },
+                en:'directly attested', ja:'直接確認', ko:'직접 확인됨', zh:'直接证实', yue:'直接證實', vi:'được chứng tích trực tiếp', th:'มีหลักฐานตรง', id:'terdokumentasi langsung', hi:'प्रत्यक्ष रूप से प्रमाणित', de:'direkt belegt', fr:'attesté directement', it:'attestato direttamente', es:'atestiguado directamente', pt:'atestado diretamente', ru:'прямо засвидетельствовано', uk:'прямо засвідчено', ar:'مُؤكَّد مباشرةً', he:'מתועד ישירות', sw:'imethibitishwa moja kwa moja', pl:'bezpośrednio poświadczone' } },
             proxy:         { sym:'~', color:'#c0392b', labels: {
-                en:'proxy from related lang', ja:'近縁言語からの代用', ko:'근연 언어에서의 대용', zh:'近亲语言代理', yue:'近親語言代理', vi:'thay thế từ ngôn ngữ liên quan', th:'แทนจากภาษาที่เกี่ยวข้อง', id:'pengganti dari bahasa terkait', hi:'संबंधित भाषा से प्रॉक्सी', de:'Stellvertreter aus verwandter Sprache', fr:'substitut depuis langue apparentée', it:'sostituto da lingua imparentata', es:'sustituto de lengua emparentada', pt:'substituto de língua aparentada', ru:'замена из родственного языка', uk:'заміна з спорідненої мови', ar:'بديل من لغة قريبة', he:'תחליף משפה קרובה', sw:'badala kutoka lugha husiana' } },
+                en:'proxy from related lang', ja:'近縁言語からの代用', ko:'근연 언어에서의 대용', zh:'近亲语言代理', yue:'近親語言代理', vi:'thay thế từ ngôn ngữ liên quan', th:'แทนจากภาษาที่เกี่ยวข้อง', id:'pengganti dari bahasa terkait', hi:'संबंधित भाषा से प्रॉक्सी', de:'Stellvertreter aus verwandter Sprache', fr:'substitut depuis langue apparentée', it:'sostituto da lingua imparentata', es:'sustituto de lengua emparentada', pt:'substituto de língua aparentada', ru:'замена из родственного языка', uk:'заміна з спорідненої мови', ar:'بديل من لغة قريبة', he:'תחליף משפה קרובה', sw:'badala kutoka lugha husiana', pl:'pośrednio z powiązanego języka' } },
             reconstructed: { sym:'*', color:'#b56500', labels: {
-                en:'reconstructed', ja:'再構形', ko:'재구형', zh:'构拟形式', yue:'構擬形式', vi:'dạng tái dựng', th:'รูปสร้างใหม่', id:'bentuk rekonstruksi', hi:'पुनर्निर्मित', de:'rekonstruiert', fr:'reconstruit', it:'ricostruito', es:'reconstruido', pt:'reconstruído', ru:'реконструировано', uk:'реконструйовано', ar:'مُعاد البناء', he:'משוחזר', sw:'imerejeshwa' } },
+                en:'reconstructed', ja:'再構形', ko:'재구형', zh:'构拟形式', yue:'構擬形式', vi:'dạng tái dựng', th:'รูปสร้างใหม่', id:'bentuk rekonstruksi', hi:'पुनर्निर्मित', de:'rekonstruiert', fr:'reconstruit', it:'ricostruito', es:'reconstruido', pt:'reconstruído', ru:'реконструировано', uk:'реконструйовано', ar:'مُعاد البناء', he:'משוחזר', sw:'imerejeshwa', pl:'rekonstruowane' } },
             inferred:      { sym:'?', color:'#a06000', labels: {
-                en:'inferred from context', ja:'文脈から推測', ko:'문맥에서 추정', zh:'依文脉推断', yue:'依文脈推斷', vi:'suy ra từ ngữ cảnh', th:'อนุมานจากบริบท', id:'disimpulkan dari konteks', hi:'संदर्भ से अनुमानित', de:'aus Kontext erschlossen', fr:'déduit du contexte', it:'dedotto dal contesto', es:'inferido del contexto', pt:'inferido do contexto', ru:'вывод из контекста', uk:'висновок з контексту', ar:'مستنتج من السياق', he:'נגזר מההקשר', sw:'imekisiwa kutoka muktadha' } },
+                en:'inferred from context', ja:'文脈から推測', ko:'문맥에서 추정', zh:'依文脉推断', yue:'依文脈推斷', vi:'suy ra từ ngữ cảnh', th:'อนุมานจากบริบท', id:'disimpulkan dari konteks', hi:'संदर्भ से अनुमानित', de:'aus Kontext erschlossen', fr:'déduit du contexte', it:'dedotto dal contesto', es:'inferido del contexto', pt:'inferido do contexto', ru:'вывод из контекста', uk:'висновок з контексту', ar:'مستنتج من السياق', he:'נגזר מההקשר', sw:'imekisiwa kutoka muktadha', pl:'wywnioskowane z kontekstu' } },
             disputed:      { sym:'⁉', color:'#a02020', labels: {
-                en:'disputed reading', ja:'異読あり', ko:'이견 있음', zh:'存在异读', yue:'存在異讀', vi:'cách đọc tranh cãi', th:'การอ่านที่ถกเถียง', id:'pembacaan diperdebatkan', hi:'विवादित पाठ', de:'umstrittene Lesart', fr:'lecture contestée', it:'lettura contestata', es:'lectura disputada', pt:'leitura disputada', ru:'спорное чтение', uk:'спірне читання', ar:'قراءة مُختلَف فيها', he:'קריאה שנויה במחלוקת', sw:'usomaji wenye mzozo' } },
+                en:'disputed reading', ja:'異読あり', ko:'이견 있음', zh:'存在异读', yue:'存在異讀', vi:'cách đọc tranh cãi', th:'การอ่านที่ถกเถียง', id:'pembacaan diperdebatkan', hi:'विवादित पाठ', de:'umstrittene Lesart', fr:'lecture contestée', it:'lettura contestata', es:'lectura disputada', pt:'leitura disputada', ru:'спорное чтение', uk:'спірне читання', ar:'قراءة مُختلَف فيها', he:'קריאה שנויה במחלוקת', sw:'usomaji wenye mzozo', pl:'sporny odczyt' } },
             pedagogical:   { sym:'◇', color:'#6020a0', labels: {
-                en:'pedagogical approx.', ja:'教育用近似', ko:'교육용 근사', zh:'教学用近似', yue:'教學用近似', vi:'mô phỏng giáo dục', th:'การประมาณเชิงการศึกษา', id:'pendekatan pedagogis', hi:'शैक्षिक अनुमानन', de:'pädagogische Näherung', fr:'approximation pédagogique', it:'approssimazione pedagogica', es:'aproximación pedagógica', pt:'aproximação pedagógica', ru:'учебная аппроксимация', uk:'навчальне наближення', ar:'تقريب تعليمي', he:'קירוב לימודי', sw:'makadirio ya kielimu' } },
+                en:'pedagogical approx.', ja:'教育用近似', ko:'교육용 근사', zh:'教学用近似', yue:'教學用近似', vi:'mô phỏng giáo dục', th:'การประมาณเชิงการศึกษา', id:'pendekatan pedagogis', hi:'शैक्षिक अनुमानन', de:'pädagogische Näherung', fr:'approximation pédagogique', it:'approssimazione pedagogica', es:'aproximación pedagógica', pt:'aproximação pedagógica', ru:'учебная аппроксимация', uk:'навчальне наближення', ar:'تقريب تعليمي', he:'קירוב לימודי', sw:'makadirio ya kielimu', pl:'pedagogiczne przybliżenie' } },
         };
         const EVIDENCE_PREFIX = {
-            source: { en:'Source', ja:'出典', ko:'출처', zh:'来源', yue:'來源', vi:'Nguồn', th:'แหล่งข้อมูล', id:'Sumber', hi:'स्रोत', de:'Quelle', fr:'Source', it:'Fonte', es:'Fuente', pt:'Fonte', ru:'Источник', uk:'Джерело', ar:'المصدر', he:'מקור', sw:'Chanzo' },
-            note:   { en:'Note',   ja:'注',   ko:'주',   zh:'注',   yue:'註',   vi:'Ghi chú', th:'หมายเหตุ', id:'Catatan', hi:'टिप्पणी', de:'Hinweis', fr:'Note', it:'Nota', es:'Nota', pt:'Nota', ru:'Примечание', uk:'Примітка', ar:'ملاحظة', he:'הערה', sw:'Kumbuka' },
+            source: { en:'Source', ja:'出典', ko:'출처', zh:'来源', yue:'來源', vi:'Nguồn', th:'แหล่งข้อมูล', id:'Sumber', hi:'स्रोत', de:'Quelle', fr:'Source', it:'Fonte', es:'Fuente', pt:'Fonte', ru:'Источник', uk:'Джерело', ar:'المصدر', he:'מקור', sw:'Chanzo', pl:'Źródło' },
+            note:   { en:'Note',   ja:'注',   ko:'주',   zh:'注',   yue:'註',   vi:'Ghi chú', th:'หมายเหตุ', id:'Catatan', hi:'टिप्पणी', de:'Hinweis', fr:'Note', it:'Nota', es:'Nota', pt:'Nota', ru:'Примечание', uk:'Примітка', ar:'ملاحظة', he:'הערה', sw:'Kumbuka', pl:'Notatka' },
         };
         function evidenceTooltip(ev) {
             if (!ev || !EVIDENCE_MARKER[ev.evidence]) return '';
@@ -8134,17 +8146,17 @@
             // Audit Task 103: surface formType so users know the displayed
             // form is a bound stem / root, not a free word.
             const formTypeLabels = {
-                'free-word':           { en:'free word', ja:'自由語', ko:'자립어', zh:'自由词', yue:'自由詞', vi:'từ tự do', th:'คำอิสระ', id:'kata bebas', hi:'मुक्त शब्द', de:'freies Wort', fr:'mot libre', it:'parola libera', es:'palabra libre', pt:'palavra livre', ru:'свободное слово', uk:'вільне слово', ar:'كلمة حرة', he:'מילה חופשית', sw:'neno huru' },
-                'bound-stem':          { en:'bound stem (requires suffix)', ja:'拘束語幹（接辞要）', ko:'구속 어간 (접사 필요)', zh:'黏着词干（需后缀）', yue:'黏著詞幹（需後綴）', vi:'thân buộc (cần hậu tố)', th:'คำราก-ผูก (ต้องเติมปัจจัย)', id:'pangkal terikat (butuh sufiks)', hi:'बद्ध मूल (प्रत्यय आवश्यक)', de:'gebundener Stamm (Suffix nötig)', fr:'radical lié (suffixe requis)', it:'tema legato (richiede suffisso)', es:'raíz ligada (requiere sufijo)', pt:'radical ligado (requer sufixo)', ru:'связанная основа (требует суффикса)', uk:'зв\'язана основа (потрібен суфікс)', ar:'جذر مقيد (يتطلب لاحقة)', he:'גזע כבול (דורש סיומת)', sw:'kiini cha kufungwa (kinahitaji kiambishi)' },
-                'root':                { en:'root', ja:'語根', ko:'어근', zh:'词根', yue:'詞根', vi:'gốc từ', th:'รากศัพท์', id:'akar kata', hi:'मूल', de:'Wurzel', fr:'racine', it:'radice', es:'raíz', pt:'raiz', ru:'корень', uk:'корінь', ar:'جذر', he:'שורש', sw:'mzizi' },
-                'inflected-form':      { en:'inflected form', ja:'屈折形', ko:'굴절형', zh:'屈折形式', yue:'屈折形式', vi:'dạng biến tố', th:'รูปผันคำ', id:'bentuk infleksi', hi:'विकारी रूप', de:'flektierte Form', fr:'forme fléchie', it:'forma flessa', es:'forma flexionada', pt:'forma flexionada', ru:'словоизменительная форма', uk:'словозмінна форма', ar:'صيغة مصرَّفة', he:'צורה מוטה', sw:'umbo lililoinama' },
-                'phrase':              { en:'phrase', ja:'句', ko:'구', zh:'短语', yue:'短語', vi:'cụm từ', th:'วลี', id:'frasa', hi:'वाक्यांश', de:'Phrase', fr:'syntagme', it:'sintagma', es:'frase', pt:'frase', ru:'словосочетание', uk:'словосполучення', ar:'عبارة', he:'ביטוי', sw:'msemo' },
-                'reconstructed-root':  { en:'reconstructed root', ja:'再構語根', ko:'재구 어근', zh:'重构词根', yue:'構擬詞根', vi:'gốc từ tái dựng', th:'รากศัพท์ที่สร้างใหม่', id:'akar rekonstruksi', hi:'पुनर्निर्मित मूल', de:'rekonstruierte Wurzel', fr:'racine reconstruite', it:'radice ricostruita', es:'raíz reconstruida', pt:'raiz reconstruída', ru:'реконструированный корень', uk:'реконструйований корінь', ar:'جذر مُعاد البناء', he:'שורש משוחזר', sw:'mzizi uliyorejeshwa' },
-                'agreement-stem':      { en:'noun-class agreement stem', ja:'名詞クラス一致語幹', ko:'명사 부류 일치 어간', zh:'名词类一致词干', yue:'名詞類一致詞幹', vi:'thân hợp lớp danh từ', th:'คำรากการเห็นชอบประเภทคำนาม', id:'pangkal kesepakatan kelas nomina', hi:'संज्ञा-वर्ग सहमति मूल', de:'Substantivklassen-Übereinstimmungsstamm', fr:'radical d\'accord de classe nominale', it:'tema di accordo di classe nominale', es:'raíz de concordancia de clase nominal', pt:'radical de concordância de classe nominal', ru:'основа согласования класса существительных', uk:'основа узгодження класу іменників', ar:'جذر توافق صنف الاسم', he:'גזע הסכם מחלקת שם עצם', sw:'kiini cha makubaliano ya darasa la nomino' },
-                'greeting-formula':    { en:'greeting formula', ja:'挨拶定型句', ko:'인사 정형구', zh:'问候语', yue:'問候語', vi:'lời chào', th:'สำนวนทักทาย', id:'sapaan baku', hi:'अभिवादन सूत्र', de:'Grußformel', fr:'formule de salutation', it:'formula di saluto', es:'fórmula de saludo', pt:'fórmula de saudação', ru:'приветственная формула', uk:'формула привітання', ar:'صيغة التحية', he:'נוסח ברכה', sw:'fomula ya salamu' },
-                'thanks-formula':      { en:'thanks formula', ja:'感謝定型句', ko:'감사 정형구', zh:'致谢用语', yue:'致謝用語', vi:'lời cảm ơn', th:'สำนวนขอบคุณ', id:'ungkapan terima kasih', hi:'धन्यवाद सूत्र', de:'Dankesformel', fr:'formule de remerciement', it:'formula di ringraziamento', es:'fórmula de agradecimiento', pt:'fórmula de agradecimento', ru:'формула благодарности', uk:'формула подяки', ar:'صيغة الشكر', he:'נוסח תודה', sw:'fomula ya shukrani' },
-                'compound':            { en:'compound', ja:'複合語', ko:'복합어', zh:'复合词', yue:'複合詞', vi:'từ ghép', th:'คำประสม', id:'kata majemuk', hi:'समस्त शब्द', de:'Kompositum', fr:'composé', it:'composto', es:'compuesto', pt:'composto', ru:'сложное слово', uk:'складне слово', ar:'كلمة مركبة', he:'מילה מורכבת', sw:'neno mseto' },
-                'light-verb-construction': { en:'light-verb construction', ja:'機能動詞構造', ko:'경동사 구문', zh:'轻动词结构', yue:'輕動詞結構', vi:'cấu trúc động từ nhẹ', th:'โครงสร้างกริยาเบา', id:'konstruksi verba ringan', hi:'हल्की क्रिया रचना', de:'Funktionsverbgefüge', fr:'construction à verbe support', it:'costruzione a verbo supporto', es:'construcción con verbo de apoyo', pt:'construção com verbo-suporte', ru:'конструкция с лёгким глаголом', uk:'конструкція з легким дієсловом', ar:'تركيب الفعل الخفيف', he:'בניית פועל קל', sw:'muundo wa kitenzi chepesi' },
+                'free-word':           { en:'free word', ja:'自由語', ko:'자립어', zh:'自由词', yue:'自由詞', vi:'từ tự do', th:'คำอิสระ', id:'kata bebas', hi:'मुक्त शब्द', de:'freies Wort', fr:'mot libre', it:'parola libera', es:'palabra libre', pt:'palavra livre', ru:'свободное слово', uk:'вільне слово', ar:'كلمة حرة', he:'מילה חופשית', sw:'neno huru', pl:'słowo swodobne' },
+                'bound-stem':          { en:'bound stem (requires suffix)', ja:'拘束語幹（接辞要）', ko:'구속 어간 (접사 필요)', zh:'黏着词干（需后缀）', yue:'黏著詞幹（需後綴）', vi:'thân buộc (cần hậu tố)', th:'คำราก-ผูก (ต้องเติมปัจจัย)', id:'pangkal terikat (butuh sufiks)', hi:'बद्ध मूल (प्रत्यय आवश्यक)', de:'gebundener Stamm (Suffix nötig)', fr:'radical lié (suffixe requis)', it:'tema legato (richiede suffisso)', es:'raíz ligada (requiere sufijo)', pt:'radical ligado (requer sufixo)', ru:'связанная основа (требует суффикса)', uk:'зв\'язана основа (потрібен суфікс)', ar:'جذر مقيد (يتطلب لاحقة)', he:'גזע כבול (דורש סיומת)', sw:'kiini cha kufungwa (kinahitaji kiambishi)', pl:'związany rdzeń (wymaga przyrostka)' },
+                'root':                { en:'root', ja:'語根', ko:'어근', zh:'词根', yue:'詞根', vi:'gốc từ', th:'รากศัพท์', id:'akar kata', hi:'मूल', de:'Wurzel', fr:'racine', it:'radice', es:'raíz', pt:'raiz', ru:'корень', uk:'корінь', ar:'جذر', he:'שורש', sw:'mzizi', pl:'rdzeń' },
+                'inflected-form':      { en:'inflected form', ja:'屈折形', ko:'굴절형', zh:'屈折形式', yue:'屈折形式', vi:'dạng biến tố', th:'รูปผันคำ', id:'bentuk infleksi', hi:'विकारी रूप', de:'flektierte Form', fr:'forme fléchie', it:'forma flessa', es:'forma flexionada', pt:'forma flexionada', ru:'словоизменительная форма', uk:'словозмінна форма', ar:'صيغة مصرَّفة', he:'צורה מוטה', sw:'umbo lililoinama', pl:'odmieniona forma' },
+                'phrase':              { en:'phrase', ja:'句', ko:'구', zh:'短语', yue:'短語', vi:'cụm từ', th:'วลี', id:'frasa', hi:'वाक्यांश', de:'Phrase', fr:'syntagme', it:'sintagma', es:'frase', pt:'frase', ru:'словосочетание', uk:'словосполучення', ar:'عبارة', he:'ביטוי', sw:'msemo', pl:'fraza' },
+                'reconstructed-root':  { en:'reconstructed root', ja:'再構語根', ko:'재구 어근', zh:'重构词根', yue:'構擬詞根', vi:'gốc từ tái dựng', th:'รากศัพท์ที่สร้างใหม่', id:'akar rekonstruksi', hi:'पुनर्निर्मित मूल', de:'rekonstruierte Wurzel', fr:'racine reconstruite', it:'radice ricostruita', es:'raíz reconstruida', pt:'raiz reconstruída', ru:'реконструированный корень', uk:'реконструйований корінь', ar:'جذر مُعاد البناء', he:'שורש משוחזר', sw:'mzizi uliyorejeshwa', pl:'rekonstruowany rdzeń' },
+                'agreement-stem':      { en:'noun-class agreement stem', ja:'名詞クラス一致語幹', ko:'명사 부류 일치 어간', zh:'名词类一致词干', yue:'名詞類一致詞幹', vi:'thân hợp lớp danh từ', th:'คำรากการเห็นชอบประเภทคำนาม', id:'pangkal kesepakatan kelas nomina', hi:'संज्ञा-वर्ग सहमति मूल', de:'Substantivklassen-Übereinstimmungsstamm', fr:'radical d\'accord de classe nominale', it:'tema di accordo di classe nominale', es:'raíz de concordancia de clase nominal', pt:'radical de concordância de classe nominal', ru:'основа согласования класса существительных', uk:'основа узгодження класу іменників', ar:'جذر توافق صنف الاسم', he:'גזע הסכם מחלקת שם עצם', sw:'kiini cha makubaliano ya darasa la nomino', pl:'rdzeń związku zgody klasy rzeczownikowej' },
+                'greeting-formula':    { en:'greeting formula', ja:'挨拶定型句', ko:'인사 정형구', zh:'问候语', yue:'問候語', vi:'lời chào', th:'สำนวนทักทาย', id:'sapaan baku', hi:'अभिवादन सूत्र', de:'Grußformel', fr:'formule de salutation', it:'formula di saluto', es:'fórmula de saludo', pt:'fórmula de saudação', ru:'приветственная формула', uk:'формула привітання', ar:'صيغة التحية', he:'נוסח ברכה', sw:'fomula ya salamu', pl:'formuła powitania' },
+                'thanks-formula':      { en:'thanks formula', ja:'感謝定型句', ko:'감사 정형구', zh:'致谢用语', yue:'致謝用語', vi:'lời cảm ơn', th:'สำนวนขอบคุณ', id:'ungkapan terima kasih', hi:'धन्यवाद सूत्र', de:'Dankesformel', fr:'formule de remerciement', it:'formula di ringraziamento', es:'fórmula de agradecimiento', pt:'fórmula de agradecimento', ru:'формула благодарности', uk:'формула подяки', ar:'صيغة الشكر', he:'נוסח תודה', sw:'fomula ya shukrani', pl:'formuła podziękowania' },
+                'compound':            { en:'compound', ja:'複合語', ko:'복합어', zh:'复合词', yue:'複合詞', vi:'từ ghép', th:'คำประสม', id:'kata majemuk', hi:'समस्त शब्द', de:'Kompositum', fr:'composé', it:'composto', es:'compuesto', pt:'composto', ru:'сложное слово', uk:'складне слово', ar:'كلمة مركبة', he:'מילה מורכבת', sw:'neno mseto', pl:'złożenie' },
+                'light-verb-construction': { en:'light-verb construction', ja:'機能動詞構造', ko:'경동사 구문', zh:'轻动词结构', yue:'輕動詞結構', vi:'cấu trúc động từ nhẹ', th:'โครงสร้างกริยาเบา', id:'konstruksi verba ringan', hi:'हल्की क्रिया रचना', de:'Funktionsverbgefüge', fr:'construction à verbe support', it:'costruzione a verbo supporto', es:'construcción con verbo de apoyo', pt:'construção com verbo-suporte', ru:'конструкция с лёгким глаголом', uk:'конструкція з легким дієсловом', ar:'تركيب الفعل الخفيف', he:'בניית פועל קל', sw:'muundo wa kitenzi chepesi', pl:'konstrukcja ze słabym czasownikiem' },
             };
             let formNote = '';
             if (ev.formType && formTypeLabels[ev.formType]) {
@@ -8270,7 +8282,7 @@
                         de: 'Sprecher', fr: 'Locuteurs', it: 'Parlanti',
                         es: 'Hablantes', pt: 'Falantes',
                         ru: 'Носители', uk: 'Носії',
-                        ar: 'الناطقون', he: 'דוברים', sw: 'Wasemaji',
+                        ar: 'الناطقون', he: 'דוברים', sw: 'Wasemaji', pl: 'Mówiący:'
                     }[uiBase] || 'Speakers';
                     const srcPart = hanMeta.speakersSource
                         ? ` <span style="color:#999">(${escapeHtml(hanMeta.speakersSource)})</span>`
@@ -8296,7 +8308,7 @@
                         de: 'Umschrift', fr: 'Romanisation', it: 'Romanizzazione',
                         es: 'Romanización', pt: 'Romanização', ru: 'Романизация',
                         uk: 'Романізація', ar: 'كتابة لاتينية',
-                        he: 'תעתיק לטיני', sw: 'Uandishi Kilatini',
+                        he: 'תעתיק לטיני', sw: 'Uandishi Kilatini', pl: 'Romanizacja',
                     }[uiBase] || 'Romanization';
                     const r = hanMeta.romanization;
                     const yearPart = r.year ? ` (${r.year})` : '';
@@ -8309,7 +8321,7 @@
                         vi: 'Nguồn', th: 'แหล่งที่มา', id: 'Sumber', hi: 'स्रोत',
                         de: 'Quellen', fr: 'Sources', it: 'Fonti', es: 'Fuentes',
                         pt: 'Fontes', ru: 'Источники', uk: 'Джерела',
-                        ar: 'المصادر', he: 'מקורות', sw: 'Vyanzo',
+                        ar: 'المصادر', he: 'מקורות', sw: 'Vyanzo', pl: 'Źródła'
                     }[uiBase] || 'Sources';
                     html += `<div style="margin:8px 0 4px;font-size:11px;color:#888"><b>${escapeHtml(srcLabel)}:</b></div>`;
                     html += '<ul style="margin:0 0 12px 16px;padding:0;font-size:11px;color:#666;line-height:1.5">';
@@ -8550,13 +8562,13 @@
                     // Localize speakerBasis values across all UI langs.
                     const SPEAKER_BASIS_LBL = {
                         // L1/L2: kept as conventional 'L1'/'L2' in scripts where
-                        // the abbreviation reads natively (en/de/fr/it/es/pt/id/sw),
+                        // the abbreviation reads natively (en/de/fr/it/es/pt/id/sw/pl),
                         // localized in CJK/Cyrillic/Indic/Thai/Vietnamese/Arabic/Hebrew.
-                        'L1':                  { en:'L1', ja:'母語',     ko:'모어',      zh:'母语',     yue:'母語',     vi:'tiếng mẹ đẻ',      th:'ภาษาแม่',      id:'L1', hi:'मातृभाषा',     de:'L1', fr:'L1', it:'L1', es:'L1', pt:'L1', ru:'родной язык',  uk:'рідна мова',  ar:'اللغة الأم',     he:'שפת אם',     sw:'L1' },
-                        'L2':                  { en:'L2', ja:'第二言語', ko:'제2언어',   zh:'第二语言', yue:'第二語言', vi:'ngôn ngữ thứ hai', th:'ภาษาที่สอง',  id:'L2', hi:'दूसरी भाषा',  de:'L2', fr:'L2', it:'L2', es:'L2', pt:'L2', ru:'второй язык', uk:'друга мова', ar:'اللغة الثانية', he:'שפה שנייה', sw:'L2' },
-                        'total':               { en:'total',     ja:'合計',     ko:'합계',     zh:'合计',    yue:'合計',    vi:'tổng',         th:'รวม',          id:'total',          hi:'कुल',           de:'gesamt',     fr:'total',     it:'totale',     es:'total',      pt:'total',     ru:'всего',        uk:'усього',     ar:'إجمالي',     he:'סה"כ',       sw:'jumla' },
-                        'aggregate':           { en:'aggregate', ja:'総計',     ko:'총계',     zh:'综合',    yue:'綜合',    vi:'tổng hợp',     th:'รวมทั้งหมด',   id:'agregat',        hi:'समग्र',         de:'aggregiert', fr:'agrégé',    it:'aggregato',  es:'agregado',   pt:'agregado',  ru:'совокупно',    uk:'сукупно',    ar:'إجمالي',     he:'מצרפי',     sw:'jumlisho' },
-                        'regional-population': { en:'regional-population', ja:'地域人口', ko:'지역 인구', zh:'地区人口', yue:'地區人口', vi:'dân số vùng', th:'ประชากรในภูมิภาค', id:'populasi regional', hi:'क्षेत्रीय जनसंख्या', de:'Regionsbevölkerung', fr:'population régionale', it:'popolazione regionale', es:'población regional', pt:'população regional', ru:'население региона', uk:'населення регіону', ar:'سكان المنطقة', he:'אוכלוסיית האזור', sw:'idadi ya watu wa eneo' },
+                        'L1':                  { en:'L1', ja:'母語',     ko:'모어',      zh:'母语',     yue:'母語',     vi:'tiếng mẹ đẻ',      th:'ภาษาแม่',      id:'L1', hi:'मातृभाषा',     de:'L1', fr:'L1', it:'L1', es:'L1', pt:'L1', ru:'родной язык',  uk:'рідна мова',  ar:'اللغة الأم',     he:'שפת אם',     sw:'L1',   pl: 'L1' },
+                        'L2':                  { en:'L2', ja:'第二言語', ko:'제2언어',   zh:'第二语言', yue:'第二語言', vi:'ngôn ngữ thứ hai', th:'ภาษาที่สอง',  id:'L2', hi:'दूसरी भाषा',  de:'L2', fr:'L2', it:'L2', es:'L2', pt:'L2', ru:'второй язык', uk:'друга мова', ar:'اللغة الثانية', he:'שפה שנייה', sw:'L2',   pl:'L2' },
+                        'total':               { en:'total',     ja:'合計',     ko:'합계',     zh:'合计',    yue:'合計',    vi:'tổng',         th:'รวม',          id:'total',          hi:'कुल',           de:'gesamt',     fr:'total',     it:'totale',     es:'total',      pt:'total',     ru:'всего',        uk:'усього',     ar:'إجمالي',     he:'סה"כ',       sw:'jumla',   pl:'razem' },
+                        'aggregate':           { en:'aggregate', ja:'総計',     ko:'총계',     zh:'综合',    yue:'綜合',    vi:'tổng hợp',     th:'รวมทั้งหมด',   id:'agregat',        hi:'समग्र',         de:'aggregiert', fr:'agrégé',    it:'aggregato',  es:'agregado',   pt:'agregado',  ru:'совокупно',    uk:'сукупно',    ar:'إجمالي',     he:'מצרפי',     sw:'jumlisho',   pl:'zbiorczo' },
+                        'regional-population': { en:'regional-population', ja:'地域人口', ko:'지역 인구', zh:'地区人口', yue:'地區人口', vi:'dân số vùng', th:'ประชากรในภูมิภาค', id:'populasi regional', hi:'क्षेत्रीय जनसंख्या', de:'Regionsbevölkerung', fr:'population régionale', it:'popolazione regionale', es:'población regional', pt:'população regional', ru:'население региона', uk:'населення регіону', ar:'سكان المنطقة', he:'אוכלוסיית האזור', sw:'idadi ya watu wa eneo',   pl:'ludność regionalna' },
                     };
                     const ui = uiLang.split('_')[0];
                     // Prefer structured speakerCount; fall back to prose.
@@ -8624,29 +8636,29 @@
                     if (f) {
                         // Provenance tags: localized for all UI langs (was: en-only "lang/family/?")
                         const PROV_LBL = {
-                            'manual-override': { en:'lang', ja:'言語', ko:'언어', zh:'语言', yue:'語言', vi:'ngôn ngữ', th:'ภาษา', id:'bahasa', hi:'भाषा', de:'Sprache', fr:'langue', it:'lingua', es:'idioma', pt:'idioma', ru:'язык', uk:'мова', ar:'لغة', he:'שפה', sw:'lugha' },
-                            'family-default': { en:'family', ja:'語族', ko:'어족', zh:'语系', yue:'語系', vi:'họ', th:'ตระกูล', id:'rumpun', hi:'परिवार', de:'Familie', fr:'famille', it:'famiglia', es:'familia', pt:'família', ru:'семья', uk:'сім\'я', ar:'عائلة', he:'משפחה', sw:'familia' },
-                            'unknown': { en:'?', ja:'?', ko:'?', zh:'?', yue:'?', vi:'?', th:'?', id:'?', hi:'?', de:'?', fr:'?', it:'?', es:'?', pt:'?', ru:'?', uk:'?', ar:'?', he:'?', sw:'?' },
+                            'manual-override': { en:'lang', ja:'言語', ko:'언어', zh:'语言', yue:'語言', vi:'ngôn ngữ', th:'ภาษา', id:'bahasa', hi:'भाषा', de:'Sprache', fr:'langue', it:'lingua', es:'idioma', pt:'idioma', ru:'язык', uk:'мова', ar:'لغة', he:'שפה', sw:'lugha', pl:'język' },
+                            'family-default': { en:'family', ja:'語族', ko:'어족', zh:'语系', yue:'語系', vi:'họ', th:'ตระกูล', id:'rumpun', hi:'परिवार', de:'Familie', fr:'famille', it:'famiglia', es:'familia', pt:'família', ru:'семья', uk:'сім\'я', ar:'عائلة', he:'משפחה', sw:'familia', pl:'rodzina' },
+                            'unknown': { en:'?', ja:'?', ko:'?', zh:'?', yue:'?', vi:'?', th:'?', id:'?', hi:'?', de:'?', fr:'?', it:'?', es:'?', pt:'?', ru:'?', uk:'?', ar:'?', he:'?', sw:'?', pl:'?' },
                         };
                         const provColor = { 'manual-override': '#3a8a3a', 'family-default': '#888', 'unknown': '#bbb' };
                         // Tone (boolean) → localized "tonal" / "non-tonal"
                         const TONE_LBL = {
-                            true:  { en:'tonal',     ja:'声調あり',   ko:'성조 있음', zh:'有声调',   yue:'有聲調',   vi:'có thanh điệu',   th:'มีวรรณยุกต์',     id:'tonal',         hi:'स्वराघातिक',         de:'tonal',     fr:'tonale',     it:'tonale',     es:'tonal',     pt:'tonal',     ru:'тональный',    uk:'тональна',    ar:'نبري',        he:'טונאלית',     sw:'yenye toni' },
-                            false: { en:'non-tonal', ja:'声調なし',   ko:'성조 없음', zh:'无声调',   yue:'無聲調',   vi:'không thanh điệu',th:'ไม่มีวรรณยุกต์', id:'non-tonal',     hi:'गैर-स्वराघातिक',    de:'nicht tonal', fr:'non tonale', it:'non tonale', es:'no tonal',  pt:'não tonal', ru:'не тональный', uk:'не тональна', ar:'غير نبري',    he:'לא טונאלית',  sw:'isiyo na toni' },
+                            true:  { en:'tonal',     ja:'声調あり',   ko:'성조 있음', zh:'有声调',   yue:'有聲調',   vi:'có thanh điệu',   th:'มีวรรณยุกต์',     id:'tonal',         hi:'स्वराघातिक',         de:'tonal',     fr:'tonale',     it:'tonale',     es:'tonal',     pt:'tonal',     ru:'тональный',    uk:'тональна',    ar:'نبري',        he:'טונאלית',     sw:'yenye toni',   pl:'tonalny' },
+                            false: { en:'non-tonal', ja:'声調なし',   ko:'성조 없음', zh:'无声调',   yue:'無聲調',   vi:'không thanh điệu',th:'ไม่มีวรรณยุกต์', id:'non-tonal',     hi:'गैर-स्वराघातिक',    de:'nicht tonal', fr:'non tonale', it:'non tonale', es:'no tonal',  pt:'não tonal', ru:'не тональный', uk:'не тональна', ar:'غير نبري',    he:'לא טונאלית',  sw:'isiyo na toni',   pl:'nietonalny' },
                         };
                         // Morphology values → localized
                         const MORPH_LBL = {
-                            isolating:     { en:'isolating',     ja:'孤立語',  ko:'고립어',  zh:'孤立语',  yue:'孤立語',  vi:'đơn lập',          th:'ภาษาคำโดด',     id:'isolatif',     hi:'वियोगात्मक',         de:'isolierend',     fr:'isolante',     it:'isolante',     es:'aislante',     pt:'isolante',     ru:'изолирующий',     uk:'ізолятивна',     ar:'عازلة',         he:'מבודדת',       sw:'isiyoambika' },
-                            fusional:      { en:'fusional',      ja:'屈折語',  ko:'굴절어',  zh:'屈折语',  yue:'屈折語',  vi:'biến hình',        th:'ภาษาวิภัตติ',    id:'fusional',     hi:'योगात्मक',          de:'flektierend',    fr:'fusionnelle',  it:'fusiva',       es:'flexiva',      pt:'fusional',     ru:'флективный',      uk:'флективна',      ar:'اندماجية',      he:'פוזיונלית',    sw:'iliyoungana' },
-                            agglutinative: { en:'agglutinative', ja:'膠着語',  ko:'교착어',  zh:'黏着语',  yue:'黏著語',  vi:'chắp dính',        th:'ภาษาคำติดต่อ',   id:'aglutinatif',  hi:'श्लिष्टयोगात्मक',     de:'agglutinierend', fr:'agglutinante', it:'agglutinante', es:'aglutinante',  pt:'aglutinante',  ru:'агглютинативный', uk:'аглютинативна',  ar:'إلصاقية',       he:'אגלוטינטיבית', sw:'iliyoambatishwa' },
-                            polysynthetic: { en:'polysynthetic', ja:'抱合語',  ko:'포합어',  zh:'复综语',  yue:'複綜語',  vi:'đa tổng hợp',      th:'ภาษาประสาน',    id:'polisintetik', hi:'बहुसंश्लिष्ट',       de:'polysynthetisch',fr:'polysynthétique',it:'polisintetica',es:'polisintética',pt:'polissintética',ru:'полисинтетический',uk:'полісинтетична',ar:'متعدد التركيب', he:'פוליסינתטית',  sw:'iliyoshikamana sana' },
+                            isolating:     { en:'isolating',     ja:'孤立語',  ko:'고립어',  zh:'孤立语',  yue:'孤立語',  vi:'đơn lập',          th:'ภาษาคำโดด',     id:'isolatif',     hi:'वियोगात्मक',         de:'isolierend',     fr:'isolante',     it:'isolante',     es:'aislante',     pt:'isolante',     ru:'изолирующий',     uk:'ізолятивна',     ar:'عازلة',         he:'מבודדת',       sw:'isiyoambika',   pl:'izolujący' },
+                            fusional:      { en:'fusional',      ja:'屈折語',  ko:'굴절어',  zh:'屈折语',  yue:'屈折語',  vi:'biến hình',        th:'ภาษาวิภัตติ',    id:'fusional',     hi:'योगात्मक',          de:'flektierend',    fr:'fusionnelle',  it:'fusiva',       es:'flexiva',      pt:'fusional',     ru:'флективный',      uk:'флективна',      ar:'اندماجية',      he:'פוזיונלית',    sw:'iliyoungana',   pl:'fleksyjny' },
+                            agglutinative: { en:'agglutinative', ja:'膠着語',  ko:'교착어',  zh:'黏着语',  yue:'黏著語',  vi:'chắp dính',        th:'ภาษาคำติดต่อ',   id:'aglutinatif',  hi:'श्लिष्टयोगात्मक',     de:'agglutinierend', fr:'agglutinante', it:'agglutinante', es:'aglutinante',  pt:'aglutinante',  ru:'агглютинативный', uk:'аглютинативна',  ar:'إلصاقية',       he:'אגלוטינטיבית', sw:'iliyoambatishwa',   pl:'aglutynacyjny' },
+                            polysynthetic: { en:'polysynthetic', ja:'抱合語',  ko:'포합어',  zh:'复综语',  yue:'複綜語',  vi:'đa tổng hợp',      th:'ภาษาประสาน',    id:'polisintetik', hi:'बहुसंश्लिष्ट',       de:'polysynthetisch',fr:'polysynthétique',it:'polisintetica',es:'polisintética',pt:'polissintética',ru:'полисинтетический',uk:'полісинтетична',ar:'متعدد التركيب', he:'פוליסינתטית',  sw:'iliyoshikamana sana',   pl:'polisyntetyczny' },
                         };
                         // Word-order values: acronyms SOV/SVO/VSO/VOS/OVS/OSV are universal
                         // linguistic shorthand and stay as-is; only the descriptive value
                         // 'free' needs UI-language translation (per user report 2026-05-18:
                         // "語順のfreeはUI翻訳されていない").
                         const WO_LBL = {
-                            free: { en:'free', ja:'自由語順', ko:'자유 어순', zh:'自由语序', yue:'自由語序', vi:'tự do', th:'อิสระ', id:'bebas', hi:'मुक्त', de:'frei', fr:'libre', it:'libero', es:'libre', pt:'livre', ru:'свободный', uk:'вільний', ar:'حر', he:'חופשי', sw:'huria' },
+                            free: { en:'free', ja:'自由語順', ko:'자유 어순', zh:'自由语序', yue:'自由語序', vi:'tự do', th:'อิสระ', id:'bebas', hi:'मुक्त', de:'frei', fr:'libre', it:'libero', es:'libre', pt:'livre', ru:'свободный', uk:'вільний', ar:'حر', he:'חופשי', sw:'huria', pl:'swobodna' },
                         };
                         const ui = uiLang.split('_')[0];
                         const localizeProv = (prov) => {
@@ -8669,9 +8681,9 @@
                             return `${escapeHtml(v)} <span style="color:${c};font-size:10px">(${escapeHtml(tag)})</span>`;
                         };
                         // Localized labels for ALL UI langs (was en/ja/ko/zh-only)
-                        const woLbl    = { en:'Word order', ja:'語順',  ko:'어순',  zh:'语序', yue:'語序', vi:'Trật tự từ', th:'ลำดับคำ', id:'Urutan Kata', hi:'शब्द क्रम', de:'Wortstellung', fr:'Ordre des mots', it:'Ordine parole', es:'Orden de palabras', pt:'Ordem das palavras', ru:'Порядок слов', uk:'Порядок слів', ar:'ترتيب الكلمات', he:'סדר מילים', sw:'Mpangilio wa Maneno' };
-                        const toneLbl  = { en:'Tone',       ja:'声調',  ko:'성조',  zh:'声调', yue:'聲調', vi:'Thanh điệu', th:'วรรณยุกต์', id:'Tonal',       hi:'स्वराघात',   de:'Ton',           fr:'Ton',            it:'Tono',         es:'Tono',              pt:'Tom',                ru:'Тон',           uk:'Тон',          ar:'النبرة',        he:'טון',         sw:'Toni' };
-                        const morphLbl = { en:'Morphology', ja:'形態論', ko:'형태론', zh:'形态', yue:'形態學', vi:'Hình thái', th:'สัณฐานวิทยา',  id:'Morfologi',  hi:'आकृति विज्ञान',  de:'Morphologie',   fr:'Morphologie',   it:'Morfologia',   es:'Morfología',         pt:'Morfologia',         ru:'Морфология',    uk:'Морфологія',  ar:'علم الصرف',    he:'מורפולוגיה', sw:'Mofolojia' };
+                        const woLbl    = { en:'Word order', ja:'語順',  ko:'어순',  zh:'语序', yue:'語序', vi:'Trật tự từ', th:'ลำดับคำ', id:'Urutan Kata', hi:'शब्द क्रम', de:'Wortstellung', fr:'Ordre des mots', it:'Ordine parole', es:'Orden de palabras', pt:'Ordem das palavras', ru:'Порядок слов', uk:'Порядок слів', ar:'ترتيب الكلمات', he:'סדר מילים', sw:'Mpangilio wa Maneno', pl:'Kolejność wyrazów' };
+                        const toneLbl  = { en:'Tone',       ja:'声調',  ko:'성조',  zh:'声调', yue:'聲調', vi:'Thanh điệu', th:'วรรณยุกต์', id:'Tonal',       hi:'स्वराघात',   de:'Ton',           fr:'Ton',            it:'Tono',         es:'Tono',              pt:'Tom',                ru:'Тон',           uk:'Тон',          ar:'النبرة',        he:'טון',         sw:'Toni',   pl:'Ton' };
+                        const morphLbl = { en:'Morphology', ja:'形態論', ko:'형태론', zh:'形态', yue:'形態學', vi:'Hình thái', th:'สัณฐานวิทยา',  id:'Morfologi',  hi:'आकृति विज्ञान',  de:'Morphologie',   fr:'Morphologie',   it:'Morfologia',   es:'Morfología',         pt:'Morfologia',         ru:'Морфология',    uk:'Морфологія',  ar:'علم الصرف',    he:'מורפולוגיה', sw:'Mofolojia',   pl:'Morfologia' };
                         html += `<tr><td>${escapeHtml(woLbl[ui] || woLbl.en)}</td><td>${fmtCell(f.wo, f.provenance.wo)}</td></tr>`;
                         html += `<tr><td>${escapeHtml(toneLbl[ui] || toneLbl.en)}</td><td>${fmtCell(f.tone, f.provenance.tone)}</td></tr>`;
                         html += `<tr><td>${escapeHtml(morphLbl[ui] || morphLbl.en)}</td><td>${fmtCell(f.morph, f.provenance.morph)}</td></tr>`;
@@ -8867,25 +8879,25 @@
                     const parent = LANG_DATA[m.parentCode];
                     const parentName = (LANG_NAMES[uiLang] || LANG_NAMES.en || {})[m.parentCode] || parent.name;
                     const roleLabels = {
-                        'regional-variety':   { en:'Regional variety of', ja:'地方変種', ko:'지역 변종', zh:'地方变体', yue:'地方變體', vi:'biến thể vùng của', th:'รูปท้องถิ่นของ', id:'ragam daerah dari', hi:'क्षेत्रीय भेद', de:'Regionalvarietät von', fr:'variété régionale de', it:'varietà regionale di', es:'variedad regional de', pt:'variedade regional de', ru:'региональный вариант', uk:'регіональний варіант', ar:'تنويع إقليمي لـ', he:'גרסה אזורית של', sw:'ainalugha ya eneo' },
-                        'dialect':            { en:'Dialect of', ja:'方言', ko:'방언', zh:'方言', yue:'方言', vi:'phương ngữ của', th:'ภาษาถิ่นของ', id:'dialek dari', hi:'बोली', de:'Dialekt von', fr:'dialecte de', it:'dialetto di', es:'dialecto de', pt:'dialeto de', ru:'диалект', uk:'діалект', ar:'لهجة', he:'ניב של', sw:'lahaja ya' },
-                        'sibling-language':   { en:'Related branch', ja:'姉妹言語', ko:'자매 언어', zh:'姊妹语言', yue:'姊妹語言', vi:'ngôn ngữ chị em', th:'ภาษาพี่น้อง', id:'cabang terkait', hi:'सहोदर भाषा', de:'verwandter Zweig', fr:'branche apparentée', it:'ramo correlato', es:'rama relacionada', pt:'ramo relacionado', ru:'родственная ветвь', uk:'споріднена гілка', ar:'فرع شقيق', he:'ענף אחות', sw:'tawi husiana' },
-                        'continuum-member':   { en:'Continuum member', ja:'連続体', ko:'연속체', zh:'连续体', yue:'連續體', vi:'thành viên liên tục', th:'สมาชิกความต่อเนื่อง', id:'anggota kontinum', hi:'सातत्य सदस्य', de:'Kontinuums-Mitglied', fr:'membre du continuum', it:'membro del continuum', es:'miembro del continuo', pt:'membro do continuum', ru:'член континуума', uk:'член континууму', ar:'عضو في المتصل', he:'חבר רצף', sw:'mwanachama wa mfululizo' },
+                        'regional-variety':   { en:'Regional variety of', ja:'地方変種', ko:'지역 변종', zh:'地方变体', yue:'地方變體', vi:'biến thể vùng của', th:'รูปท้องถิ่นของ', id:'ragam daerah dari', hi:'क्षेत्रीय भेद', de:'Regionalvarietät von', fr:'variété régionale de', it:'varietà regionale di', es:'variedad regional de', pt:'variedade regional de', ru:'региональный вариант', uk:'регіональний варіант', ar:'تنويع إقليمي لـ', he:'גרסה אזורית של', sw:'ainalugha ya eneo', pl:'Wariant regionalny' },
+                        'dialect':            { en:'Dialect of', ja:'方言', ko:'방언', zh:'方言', yue:'方言', vi:'phương ngữ của', th:'ภาษาถิ่นของ', id:'dialek dari', hi:'बोली', de:'Dialekt von', fr:'dialecte de', it:'dialetto di', es:'dialecto de', pt:'dialeto de', ru:'диалект', uk:'діалект', ar:'لهجة', he:'ניב של', sw:'lahaja ya', pl:'Dialekt' },
+                        'sibling-language':   { en:'Related branch', ja:'姉妹言語', ko:'자매 언어', zh:'姊妹语言', yue:'姊妹語言', vi:'ngôn ngữ chị em', th:'ภาษาพี่น้อง', id:'cabang terkait', hi:'सहोदर भाषा', de:'verwandter Zweig', fr:'branche apparentée', it:'ramo correlato', es:'rama relacionada', pt:'ramo relacionado', ru:'родственная ветвь', uk:'споріднена гілка', ar:'فرع شقيق', he:'ענף אחות', sw:'tawi husiana', pl:'Powiązana gałąź' },
+                        'continuum-member':   { en:'Continuum member', ja:'連続体', ko:'연속체', zh:'连续体', yue:'連續體', vi:'thành viên liên tục', th:'สมาชิกความต่อเนื่อง', id:'anggota kontinum', hi:'सातत्य सदस्य', de:'Kontinuums-Mitglied', fr:'membre du continuum', it:'membro del continuum', es:'miembro del continuo', pt:'membro do continuum', ru:'член континуума', uk:'член континууму', ar:'عضو في المتصل', he:'חבר רצף', sw:'mwanachama wa mfululizo', pl:'Członek kontinuum' },
                     };
                     const role = m.varietyRole || 'regional-variety';
                     const lblObj = roleLabels[role] || roleLabels['regional-variety'];
                     const lbl = lblObj[uiLang] || lblObj[uiLang.split('_')[0]] || lblObj.en;
                     html += `<div style="margin-top:6px;font-size:11px;color:#666"><b>${escapeHtml(lbl)}:</b> <a href="#" data-langcode="${escapeHtml(m.parentCode)}" style="color:#1a73e8;text-decoration:none">${escapeHtml(parentName)}</a> (${escapeHtml(m.parentCode)})</div>`;
                 } else if (m.varietyRole === 'base') {
-                    const lblObj = { en:'Base variety', ja:'基準変種', ko:'기준 변종', zh:'基准变体', yue:'基準變體', vi:'biến thể cơ sở', th:'รูปฐาน', id:'ragam dasar', hi:'आधार भेद', de:'Basisvarietät', fr:'variété de base', it:'varietà di base', es:'variedad base', pt:'variedade base', ru:'базовый вариант', uk:'базовий варіант', ar:'تنويع أساسي', he:'גרסה בסיסית', sw:'ainalugha ya msingi' };
+                    const lblObj = { en:'Base variety', ja:'基準変種', ko:'기준 변종', zh:'基准变体', yue:'基準變體', vi:'biến thể cơ sở', th:'รูปฐาน', id:'ragam dasar', hi:'आधार भेद', de:'Basisvarietät', fr:'variété de base', it:'varietà di base', es:'variedad base', pt:'variedade base', ru:'базовый вариант', uk:'базовий варіант', ar:'تنويع أساسي', he:'גרסה בסיסית', sw:'ainalugha ya msingi', pl:'Postawowy rodzaj' };
                     const lbl = lblObj[uiLang] || lblObj[uiLang.split('_')[0]] || lblObj.en;
                     html += `<div style="margin-top:6px;font-size:11px;color:#666"><b>${escapeHtml(lbl)}</b></div>`;
                 } else if (m.varietyRole === 'sibling-language') {
-                    const lblObj = { en:'Sibling language (separate from related main language)', ja:'姉妹言語（関連する主要言語とは別個）', ko:'자매 언어 (관련 주요 언어와 별개)', zh:'姊妹语言（与相关主要语言独立）', yue:'姊妹語言（與相關主要語言獨立）', vi:'ngôn ngữ chị em (tách khỏi ngôn ngữ chính liên quan)', th:'ภาษาพี่น้อง (แยกจากภาษาหลักที่เกี่ยวข้อง)', id:'bahasa saudara (terpisah dari bahasa utama terkait)', hi:'सहोदर भाषा (संबंधित मुख्य भाषा से अलग)', de:'Schwestersprache (getrennt von verwandter Hauptsprache)', fr:'langue sœur (distincte de la langue principale apparentée)', it:'lingua sorella (separata dalla lingua principale correlata)', es:'lengua hermana (separada del idioma principal relacionado)', pt:'língua irmã (separada do idioma principal relacionado)', ru:'родственный язык (отдельно от связанного основного языка)', uk:'споріднена мова (окремо від пов\'язаної основної мови)', ar:'لغة شقيقة (مستقلة عن اللغة الرئيسية المرتبطة)', he:'שפה אחות (נפרדת מהשפה הראשית הקרובה)', sw:'lugha dada (tofauti na lugha kuu husiana)' };
+                    const lblObj = { en:'Sibling language (separate from related main language)', ja:'姉妹言語（関連する主要言語とは別個）', ko:'자매 언어 (관련 주요 언어와 별개)', zh:'姊妹语言（与相关主要语言独立）', yue:'姊妹語言（與相關主要語言獨立）', vi:'ngôn ngữ chị em (tách khỏi ngôn ngữ chính liên quan)', th:'ภาษาพี่น้อง (แยกจากภาษาหลักที่เกี่ยวข้อง)', id:'bahasa saudara (terpisah dari bahasa utama terkait)', hi:'सहोदर भाषा (संबंधित मुख्य भाषा से अलग)', de:'Schwestersprache (getrennt von verwandter Hauptsprache)', fr:'langue sœur (distincte de la langue principale apparentée)', it:'lingua sorella (separata dalla lingua principale correlata)', es:'lengua hermana (separada del idioma principal relacionado)', pt:'língua irmã (separada do idioma principal relacionado)', ru:'родственный язык (отдельно от связанного основного языка)', uk:'споріднена мова (окремо від пов\'язаної основної мови)', ar:'لغة شقيقة (مستقلة عن اللغة الرئيسية المرتبطة)', he:'שפה אחות (נפרדת מהשפה הראשית הקרובה)', sw:'lugha dada (tofauti na lugha kuu husiana)', pl:'Spokrewniony język (oddzielny od związanego głównego języka)' };
                     const lbl = lblObj[uiLang] || lblObj[uiLang.split('_')[0]] || lblObj.en;
                     html += `<div style="margin-top:6px;font-size:11px;color:#666"><b>${escapeHtml(lbl)}</b></div>`;
                 } else if (m.varietyRole === 'continuum-member') {
-                    const lblObj = { en:'Continuum member (between related languages)', ja:'連続体メンバー（関連言語の間）', ko:'연속체 구성원 (관련 언어 사이)', zh:'连续体成员（关联语言之间）', yue:'連續體成員（關聯語言之間）', vi:'thành viên của liên tục (giữa các ngôn ngữ liên quan)', th:'สมาชิกความต่อเนื่อง (ระหว่างภาษาที่เกี่ยวข้อง)', id:'anggota kontinum (di antara bahasa terkait)', hi:'सातत्य सदस्य (संबंधित भाषाओं के बीच)', de:'Kontinuum-Mitglied (zwischen verwandten Sprachen)', fr:'membre d\'un continuum (entre langues apparentées)', it:'membro del continuum (tra lingue imparentate)', es:'miembro del continuo (entre lenguas relacionadas)', pt:'membro do continuum (entre idiomas relacionados)', ru:'член континуума (между родственными языками)', uk:'член континууму (між спорідненими мовами)', ar:'عضو في المتصل (بين لغات قريبة)', he:'חבר רצף (בין שפות קרובות)', sw:'mwanachama wa mfululizo (kati ya lugha husiana)' };
+                    const lblObj = { en:'Continuum member (between related languages)', ja:'連続体メンバー（関連言語の間）', ko:'연속체 구성원 (관련 언어 사이)', zh:'连续体成员（关联语言之间）', yue:'連續體成員（關聯語言之間）', vi:'thành viên của liên tục (giữa các ngôn ngữ liên quan)', th:'สมาชิกความต่อเนื่อง (ระหว่างภาษาที่เกี่ยวข้อง)', id:'anggota kontinum (di antara bahasa terkait)', hi:'सातत्य सदस्य (संबंधित भाषाओं के बीच)', de:'Kontinuum-Mitglied (zwischen verwandten Sprachen)', fr:'membre d\'un continuum (entre langues apparentées)', it:'membro del continuum (tra lingue imparentate)', es:'miembro del continuo (entre lenguas relacionadas)', pt:'membro do continuum (entre idiomas relacionados)', ru:'член континуума (между родственными языками)', uk:'член континууму (між спорідненими мовами)', ar:'عضو في المتصل (بين لغات قريبة)', he:'חבר רצף (בין שפות קרובות)', sw:'mwanachama wa mfululizo (kati ya lugha husiana)', pl:'Członek kontinuum (między związanymi językami)' };
                     const lbl = lblObj[uiLang] || lblObj[uiLang.split('_')[0]] || lblObj.en;
                     html += `<div style="margin-top:6px;font-size:11px;color:#666"><b>${escapeHtml(lbl)}</b></div>`;
                 }
@@ -9349,6 +9361,7 @@
             ar:    { title:'مقارنة اللغات', clear:'مسح', fab:'مقارنة', add:'+ إضافة للمقارنة', remove:'✓ قيد المقارنة (إزالة)', max:'بحد أقصى 8 لغات', simcolor:'إبراز حسب التشابه', del:'إزالة' },
             he:    { title:'השוואת שפות', clear:'נקה', fab:'השווה', add:'+ הוסף להשוואה', remove:'✓ בהשוואה (הסר)', max:'מקסימום 8 שפות', simcolor:'הדגש לפי דמיון', del:'הסר' },
             sw:    { title:'Ulinganishaji wa lugha', clear:'Futa', fab:'Linganisha', add:'+ Ongeza ili kulinganisha', remove:'✓ Inalinganishwa (toa)', max:'Lugha 8 zaidi', simcolor:'Angazia kwa kufanana', del:'Ondoa' },
+            pl:    { title:'Porównanie języków', clear:'Wyczyść', fab:'Porównaj', add:'+ Dodaj do porównania', remove:'✓ W porównaniu (usuń)', max:'Maksimum 8 języków', simcolor:'Zakreśl według podobieństwa', del:'Usuń' },
         };
         function compareT(key) {
             const base = uiLang.split('_')[0];
